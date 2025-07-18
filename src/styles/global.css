@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        @apply bg-[#0A1E3C] text-white font-sans;
+    }
+    html {
+        @apply scroll-smooth;
+    }
+}
+
+.font-handwritten {
+    font-family: "Caveat", cursive;
+    font-weight: 700;
+}
+
+/* Underline animation: left-to-right */
+.underline-animated {
+    position: relative;
+    display: inline-block;
+}
+.underline-animated::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: draw-underline 4s ease-in-out infinite;
+}
+@keyframes draw-underline {
+    0%,
+    100% {
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+    25% {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+    50%,
+    75% {
+        transform: scaleX(1);
+        transform-origin: right;
+    }
+    99% {
+        transform: scaleX(0);
+        transform-origin: right;
+    }
+}
+
+/* Marquee animation for industries */
+.marquee-container {
+    mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 75%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent,
+        black 25%,
+        black 75%,
+        transparent
+    );
+}
+.marquee-content {
+    animation: marquee-vertical 12s linear infinite;
+}
+@keyframes marquee-vertical {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-50%);
+    }
+}
+
+[x-cloak] {
+    display: none;
+}
+
+.fade-in-out {
+    transition: opacity 0.5s ease;
+}

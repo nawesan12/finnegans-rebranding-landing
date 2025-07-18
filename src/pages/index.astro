@@ -1,16 +1,20 @@
 ---
-
+import Layout from "../layouts/MainLayout.astro";
+import Hero from "../components/Hero.astro";
+import Industries from "../components/Industries";
+import Products from "../components/Products";
+import Philosophy from "../components/Philosophy.astro";
+import Cta from "../components/Cta.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Finnegans | Te acompañamos al futuro que imaginamos">
+    <main>
+        <Hero />
+        <Industries client:visible />
+        <Products client:visible />
+        <Philosophy />
+        <Cta />
+    </main>
+    <Footer />
+</Layout>

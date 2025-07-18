@@ -1,0 +1,200 @@
+---
+// Import the necessary icons from lucide-astro
+import { Instagram, Linkedin } from "@lucide/astro";
+
+// It's good practice to define the image path here.
+// This image should be placed in your `public/` folder.
+const bgImageUrl = "/hero.png";
+---
+
+<!--
+  This section is designed to be a full-viewport hero.
+  - It uses a background image that covers the entire area.
+  - The layout is a flex column that distributes content vertically.
+  - All typography and spacing are responsive.
+  - Includes a fully animated hamburger menu for mobile.
+-->
+<section
+    id="home"
+    class="relative min-h-screen bg-cover bg-center bg-no-repeat"
+    style={`background-image: url('${bgImageUrl}')`}
+>
+    <!-- This div acts as a container for all content, ensuring consistent padding and max-width -->
+    <div
+        class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-evenly p-6 lg:px-0"
+    >
+        <!-- Header: Contains logo and menu controls -->
+        <header class="w-full">
+            <div class="flex items-center justify-between text-white">
+                <!-- Logo with responsive font size -->
+                <a href="/" class="z-50 text-4xl font-semibold md:text-5xl"
+                    >Finnegans</a
+                >
+
+                <!-- Desktop Navigation (Visible on md screens and up) -->
+                <nav class="hidden items-center space-x-6 md:flex">
+                    <a
+                        href="#"
+                        aria-label="LinkedIn"
+                        class="text-white/80 transition hover:text-white"
+                        ><Linkedin /></a
+                    >
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                        class="text-white/80 transition hover:text-white"
+                        ><Instagram /></a
+                    >
+                </nav>
+
+                <!-- Hamburger Menu Button (Visible on mobile) -->
+                <button
+                    id="menu-btn"
+                    class="hamburger z-50 block md:hidden focus:outline-none"
+                    type="button"
+                    aria-label="Toggle Menu"
+                >
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div
+            id="menu"
+            class="fixed inset-0 z-40 hidden flex-col items-center justify-center space-y-12 bg-[#0A1E3C]/90 text-4xl text-white backdrop-blur-sm"
+        >
+            <a href="#soluciones" class="hover:text-violet-400">Soluciones</a>
+            <a href="#academia" class="hover:text-violet-400">Academia</a>
+            <a href="#impacto" class="hover:text-violet-400">Impacto</a>
+            <div class="flex items-center gap-8 pt-8">
+                <a
+                    href="#"
+                    aria-label="LinkedIn"
+                    class="transition hover:text-violet-400"
+                    ><Linkedin size={40} /></a
+                >
+                <a
+                    href="#"
+                    aria-label="Instagram"
+                    class="transition hover:text-violet-400"
+                    ><Instagram size={40} /></a
+                >
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="text-white">
+            <h2
+                class="text-5xl font-semibold leading-tight sm:text-6xl md:text-7xl lg:text-8xl"
+            >
+                Te <br /> acompañamos <br /> al futuro que
+                <span
+                    class="font-handwritten text-6xl sm:text-7xl md:text-8xl lg:text-9xl"
+                    >imaginamos.</span
+                >
+            </h2>
+        </div>
+
+        <!-- Footer within the hero -->
+        <div
+            class="flex flex-col items-center justify-between gap-8 text-white md:flex-row"
+        >
+            <p class="text-center text-xl font-medium md:text-left md:text-2xl">
+                Nos reinventamos, con el <span class="font-handwritten text-2xl"
+                    >cielo</span
+                >
+                como punto de partida.
+            </p>
+
+            <!-- Desktop Bottom Navigation -->
+            <nav class="hidden items-center text-lg font-medium md:flex">
+                <ul class="flex items-center gap-6 text-white/80">
+                    <li>
+                        <a
+                            href="#soluciones"
+                            class="transition hover:text-white">Soluciones</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#academia" class="transition hover:text-white"
+                            >Academia</a
+                        >
+                    </li>
+                    <li>
+                        <a href="#impacto" class="transition hover:text-white"
+                            >Impacto</a
+                        >
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<!-- Client-side script to control the hamburger menu -->
+<script is:inline>
+    const btn = document.getElementById("menu-btn");
+    const menu = document.getElementById("menu");
+
+    btn.addEventListener("click", () => {
+        btn.classList.toggle("open");
+        menu.classList.toggle("hidden");
+        menu.classList.toggle("flex");
+        document.body.classList.toggle("overflow-hidden"); // Prevents scrolling when menu is open
+    });
+</script>
+
+<!-- Styles for the hamburger animation and fonts -->
+<style is:global>
+    @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+    .font-handwritten {
+        font-family: "Gochi Hand", cursive;
+    }
+
+    /* Hamburger Menu Styles */
+    .hamburger {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+        transition: all 0.25s;
+        position: relative;
+    }
+
+    .hamburger-top,
+    .hamburger-middle,
+    .hamburger-bottom {
+        position: absolute;
+        width: 24px;
+        height: 3px;
+        top: 0;
+        left: 0;
+        background: #fff;
+        border-radius: 2px;
+        transform: rotate(0);
+        transition: all 0.5s;
+    }
+
+    .hamburger-middle {
+        transform: translateY(7px);
+    }
+
+    .hamburger-bottom {
+        transform: translateY(14px);
+    }
+
+    .open .hamburger-top {
+        transform: rotate(45deg) translateY(6px) translateX(6px);
+    }
+
+    .open .hamburger-middle {
+        display: none;
+    }
+
+    .open .hamburger-bottom {
+        transform: rotate(-45deg) translateY(6px) translateX(-6px);
+    }
+</style>

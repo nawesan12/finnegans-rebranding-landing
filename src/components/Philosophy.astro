@@ -1,0 +1,54 @@
+<!--
+  This component displays a large hero image followed by a section with a quote.
+  It is designed to be responsive using Tailwind CSS.
+--><!-- Section for the full-width image -->
+<section id="impacto" class="max-h-80 overflow-hidden">
+    <img
+        src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
+        alt="Group of people looking up"
+        class="w-full object-cover"
+    />
+</section>
+
+<!-- Section for the purple banner with text -->
+<section class="section-purple bg-[#C4B5FD] py-20 lg:py-24">
+    <!--
+    Container to manage max-width and responsive padding.
+    - `px-6` provides padding on mobile.
+    - `mx-auto` centers the container.
+  -->
+    <div class="container mx-auto px-6 text-center">
+        <!--
+      The paragraph uses responsive font sizes and line heights.
+      - `text-5xl` is the base font size.
+      - `leading-tight` adjusts the line spacing for large text.
+    -->
+        <p
+            class="mx-auto max-w-7xl text-4xl font-thin leading-tight text-white md:text-5xl"
+        >
+            Creemos que no hay avance <span class="font-semibold italic"
+                >tecnológico</span
+            >
+            sin
+            <span class="font-semibold italic">humanidad</span>, <br />
+            no hay fuerza de cambio posible sin todos adentro creando y <br />
+            <span class="font-semibold italic">transformando</span>
+            el presente para ir hacia un
+            <span class="font-semibold italic">futuro</span>
+            mejor.
+        </p>
+    </div>
+</section>
+
+<!--
+  Global styles for custom fonts used in the project.
+  It's good practice to keep this in a central layout file,
+  but it is included here to make the component self-contained.
+-->
+<style is:global>
+    @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+    .font-handwritten {
+        font-family: "Gochi Hand", cursive;
+    }
+</style>
