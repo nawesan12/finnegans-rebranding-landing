@@ -92,7 +92,7 @@ export default function App() {
   return (
     <div className="font-sans text-white flex items-center justify-center bg-[#1C243B]">
       <section id="soluciones" className="w-full py-20 lg:py-0">
-        <div className="lg:max-w-7xl mx-auto px-6 lg:px-0  flex flex-col items-center md:grid md:grid-cols-2 gap-16">
+        <div className="lg:max-w-7xl mx-auto px-6 lg:px-0 flex flex-col lg:grid lg:grid-cols-2 gap-16">
           {/* Left Side: Title */}
           <div className="text-left self-center">
             <h3 className="text-7xl font-light">
@@ -110,7 +110,7 @@ export default function App() {
           >
             <div className="relative w-full h-full">
               <motion.ul
-                className="absolute flex flex-col items-center lg:items-start -mx-16"
+                className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center lg:left-0 lg:translate-x-0 lg:items-start"
                 animate={controls}
               >
                 {infiniteIndustries.map((industry, index) => {
