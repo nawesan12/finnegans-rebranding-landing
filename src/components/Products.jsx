@@ -25,8 +25,7 @@ const products = {
       "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3",
+    image: "/foto-1.png",
   },
   academia: {
     title: "Finnegans Academia",
@@ -36,30 +35,7 @@ const products = {
       "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen al máximo la tecnología.",
     badgeBg: "bg-white/20",
     badgeText: "text-white",
-    image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.0.3",
-  },
-  impacto: {
-    title: "Finnegans Impacto",
-    bg: "bg-[#8FC6FF]",
-    text: "text-gray-800",
-    description:
-      "Iniciativas que buscan generar un cambio positivo en la sociedad, utilizando la tecnología como motor de transformación social.",
-    badgeBg: "bg-white/50",
-    badgeText: "text-black",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3",
-  },
-  futuro: {
-    title: "Finnegans Futuro",
-    bg: "bg-[#FFBCD1]",
-    text: "text-gray-800",
-    description:
-      "Exploramos las fronteras de la innovación para crear las soluciones del mañana, anticipando las necesidades de un mundo en constante cambio.",
-    badgeBg: "bg-white/50",
-    badgeText: "text-black",
-    image:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2832&auto=format&fit=crop&ixlib=rb-4.0.3",
+    image: "/foto-2.png",
   },
 };
 
@@ -80,57 +56,9 @@ function IconRenderer({ iconKey, isActive, activeProduct }) {
   const className = `w-6 h-6 transition-colors duration-300 ${iconColorClass}`;
 
   const icons = {
-    quippos: (
-      <svg
-        className={className}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg>
-    ),
+    quippos: <img src="/" alt="Quippos Icon" className={className} />,
     academia: (
-      <svg
-        className={className}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M14.5 15.5L18 12l-3.5-3.5M9.5 8.5L6 12l3.5 3.5" />
-      </svg>
-    ),
-    impacto: (
-      <svg
-        className={className}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    futuro: (
-      <svg
-        className={className}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
+      <img src="/Academia.svg" alt="Academia Icon" className={className} />
     ),
   };
 
