@@ -1,0 +1,16 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="
+      M 50, 5
+      C 25, 5, 5, 25, 5, 50
+      S 25, 95, 50, 95
+      S 95, 75, 95, 50
+      S 75, 5, 50, 5
+      Z
+    "
+    stroke="white"
+    stroke-width="2"
+    fill="none"
+    transform="rotate(-5 50 50)"
+  />
+</svg>

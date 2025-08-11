@@ -2,9 +2,21 @@
   This component displays a large hero image followed by a section with a quote.
   It is designed to be responsive using Tailwind CSS.
 --><!-- Section for the full-width image -->
-<section id="impacto" class="max-h-80 overflow-hidden">
+<section
+    class="bg-[#008584] flex flex-col lg:flex-row items-center justify-evenly lg:h-96 py-11 px-8 lg:py-0 gap-11 lg:gap-0"
+>
+    <img src="/Academia.svg" class="lg:h-72" alt="" />
+
+    <p class="lg:max-w-sm text-2xl text-center lg:text-left">
+        Impulsamos el aprendizaje y <br class="lg:block hidden" /> desarrollo de
+        quienes <br class="lg:block hidden" />usan nuestra tecnologia.
+    </p>
+
+    <a href="" class="text-3xl">Conoce mas</a>
+</section>
+<section id="impacto" class="h-1/2 overflow-hidden">
     <img
-        src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
+        src="/foto-chinitos.png"
         alt="Group of people looking up"
         class="w-full object-cover"
     />

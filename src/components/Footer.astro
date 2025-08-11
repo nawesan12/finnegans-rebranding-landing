@@ -17,13 +17,13 @@ import { Linkedin, Instagram, ChevronUp } from "@lucide/astro";
                 class="flex flex-col items-center justify-between gap-8 text-center md:flex-row md:text-left"
             >
                 <!-- Heading with responsive font size -->
-                <h3 class="text-3xl font-bold md:text-4xl">
-                    Empecemos a crear juntos.
+                <h3 class="text-3xl font-semibold md:text-4xl">
+                    Empecemos a <span class="text-[#4bc3fe]">crear</span> juntos.
                 </h3>
                 <!-- Button with responsive font size and padding -->
                 <a
                     href="#"
-                    class="inline-block flex-shrink-0 rounded-full bg-white px-6 py-3 font-bold text-blue-900 transition-colors hover:bg-gray-200 md:px-8 text-xl md:text-2xl"
+                    class="inline-block flex-shrink-0 bg-[#4bc3fe] rounded-full text-white px-6 py-3 font-bold transition-colors hover:bg-gray-200 md:px-8 text-xl md:text-2xl"
                     >Agendá una demo</a
                 >
             </div>
@@ -34,10 +34,12 @@ import { Linkedin, Instagram, ChevronUp } from "@lucide/astro";
             class="flex flex-col items-center justify-between gap-10 pt-12 md:flex-row md:gap-6"
         >
             <!-- Logo with responsive font size -->
-            <h4 class="text-4xl font-bold text-white md:text-5xl">Finnegans</h4>
+            <img src="/finnegans-blanco.png" class="h-12" alt="" />
 
             <!-- Main navigation, hidden on mobile (md:flex) -->
-            <div class="hidden items-center gap-6 text-white/70 md:flex">
+            <div
+                class="hidden items-center text-lg font-medium gap-6 text-white md:flex"
+            >
                 <a href="#soluciones" class="transition hover:text-white"
                     >Soluciones</a
                 >
@@ -53,16 +55,18 @@ import { Linkedin, Instagram, ChevronUp } from "@lucide/astro";
             <div class="flex items-center gap-6">
                 <a
                     href="#"
-                    aria-label="LinkedIn"
-                    class="text-white/70 transition hover:text-white"
-                    ><Linkedin size={24} /></a
-                >
-                <a
-                    href="#"
                     aria-label="Instagram"
                     class="text-white/70 transition hover:text-white"
-                    ><Instagram size={24} /></a
                 >
+                    <img src="/Instagram.svg" class="size-6" alt="" />
+                </a>
+                <a
+                    href="#"
+                    aria-label="LinkedIn"
+                    class="text-white/70 transition hover:text-white"
+                >
+                    <img src="/Linkedin.svg" class="size-8" alt="" />
+                </a>
             </div>
 
             <!-- "Back to top" button -->
