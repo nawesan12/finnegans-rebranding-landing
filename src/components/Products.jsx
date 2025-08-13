@@ -105,7 +105,7 @@ export default function FinnegansProductosReact() {
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`w-full md:w-3/4 lg:w-1/2 rounded-t-3xl md:rounded-r-[64px] md:rounded-t-none p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
+          className={`w-full md:w-3/4 lg:w-1/2 rounded-t-3xl md:rounded-r-[64px] md:rounded-t-none p-8 sm:p-10 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
         >
           {/* Inner content div */}
           <div className="flex flex-col gap-4">
@@ -118,10 +118,10 @@ export default function FinnegansProductosReact() {
             <img
               src="/favicon.svg"
               alt="Finnegans Logo"
-              className="w-20 h-20 md:w-24 md:h-24"
+              className="w-16 h-16 md:w-24 md:h-24"
             />
             {/* Responsive title font size */}
-            <h3 className="text-5xl sm:text-6xl lg:text-8xl font-semibold mt-4">
+            <h3 className="text-4xl sm:text-6xl lg:text-8xl font-semibold mt-4">
               {activeProduct.title.split(" ").map((word, index) => (
                 <span key={index} className="block">
                   {word}
@@ -129,7 +129,7 @@ export default function FinnegansProductosReact() {
               ))}
             </h3>
             <p
-              className={`mt-4 text-base md:text-lg max-w-lg transition-colors duration-500 ${
+              className={`mt-2 text-base md:text-lg max-w-lg transition-colors duration-500 ${
                 activeProduct.text === "text-white"
                   ? "text-white/80"
                   : "text-gray-700/90"

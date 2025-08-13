@@ -57,7 +57,7 @@ export default function App() {
 
   // --- KEY CHANGE 1: INCREASED SPACING ---
   // Increased from 4.5rem to 6rem to create more vertical space.
-  const listItemHeight = 6; // in rem
+  const listItemHeight = 4.5; // in rem
   const visibleItems = 7;
 
   useEffect(() => {
@@ -91,13 +91,13 @@ export default function App() {
 
   return (
     <div className="font-sans text-white flex items-center justify-center bg-[#1C243B]">
-      <section id="soluciones" className="w-full py-20 lg:py-0">
-        <div className="lg:max-w-7xl mx-auto px-6 lg:px-0 flex flex-col lg:grid lg:grid-cols-2 gap-16">
+      <section id="soluciones" className="w-full py-16 lg:py-24">
+        <div className="lg:max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Side: Title */}
-          <div className="text-left self-center">
-            <h3 className="text-7xl font-light">
+          <div className="text-center lg:text-left self-center">
+            <h3 className="text-5xl md:text-7xl font-light">
               Tecnología <br /> que se{" "}
-              <span className="font-handwritten text-8xl text-violet-400">
+              <span className="font-handwritten text-6xl md:text-8xl text-violet-400">
                 adapta
               </span>{" "}
               <br />a tu industria.
@@ -143,8 +143,8 @@ export default function App() {
                         // --- KEY CHANGE 3: LARGER FONT FOR ACTIVE ITEM ---
                         className={`whitespace-nowrap transition-all duration-500 ${
                           isActive
-                            ? "font-medium text-xl lg:text-6xl"
-                            : "font-light text-lg lg:text-5xl"
+                            ? "font-medium text-xl lg:text-3xl"
+                            : "font-light text-lg lg:text-2xl"
                         }`}
                       >
                         {industry.name.split(" ").map((word, wordIndex) => (

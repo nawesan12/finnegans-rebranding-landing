@@ -6,22 +6,22 @@
   This is a simple, responsive banner component for Astro.
   It uses Tailwind CSS for styling.
 -->
-<section class="bg-[#FF4F00] py-20 text-black text-center lg:py-24">
+<section class="bg-[#FF4F00] py-16 text-black text-center lg:py-24">
     <!--
     This container handles the max-width and responsive padding.
     - `px-6` applies horizontal padding on mobile and tablet.
     - `lg:px-0` removes the horizontal padding on large screens, as requested.
   -->
-    <div class="mx-auto max-w-7xl px-6 lg:px-0">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <!--
       The heading uses responsive font sizes to adapt to different screen widths.
       - `text-5xl` is the base size for mobile.
       - `md:text-7xl` increases the size for medium screens and up.
     -->
-        <h2 class="text-5xl font-bold md:text-7xl">
+        <h2 class="text-4xl font-bold md:text-7xl">
             Somos creatividad con
             <!-- The handwritten span also has responsive font sizes -->
-            <span class="font-handwritten text-6xl md:text-8xl">impacto.</span>
+            <span class="font-handwritten text-5xl md:text-8xl">impacto.</span>
         </h2>
     </div>
 </section>
