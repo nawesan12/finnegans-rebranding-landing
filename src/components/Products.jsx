@@ -56,9 +56,19 @@ function IconRenderer({ iconKey, isActive, activeProduct }) {
   const className = `w-6 h-6 transition-colors duration-300 ${iconColorClass}`;
 
   const icons = {
-    quippos: <img src="/" alt="Quippos Icon" className={className} />,
+    quippos: (
+      <img
+        src="/Quippos/Isotipo Sobrecolor.svg"
+        alt="Quippos Icon"
+        className={className}
+      />
+    ),
     academia: (
-      <img src="/Academia.svg" alt="Academia Icon" className={className} />
+      <img
+        src="/GO/Iso Color Especial.svg"
+        alt="Academia Icon"
+        className={className}
+      />
     ),
   };
 
@@ -98,14 +108,12 @@ export default function FinnegansProductosReact() {
 
       {/* Flex container for positioning the modal */}
       {/* On mobile, it centers content. On md screens and up, it aligns to the start. */}
-      <div className="relative z-10 flex min-h-screen items-end md:items-center">
+      <div className="relative z-10 flex min-h-screen justify-between items-center gap-8">
         {/* The actual info modal with responsive width, padding, and border radius */}
+
         <motion.div
           key={activeKey}
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className={`w-full md:w-3/4 lg:w-1/2 rounded-t-3xl md:rounded-r-[64px] md:rounded-t-none p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
+          className={`w-full md:w-3/4 lg:w-1/2 rounded-r-3xl p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
         >
           {/* Inner content div */}
           <div className="flex flex-col gap-4">
@@ -163,6 +171,13 @@ export default function FinnegansProductosReact() {
             </div>
           </div>
         </motion.div>
+
+        <div className="w-full md:w-1/3 bg-white/80 backdrop-blur-lg p-8 sm:p-12 md:p-16 rounded-l-full text-gray-900 self-end">
+          <img
+            src="/Isologotipo Principal Finni .svg"
+            alt="Isologotipo Principal Finni"
+          />
+        </div>
       </div>
     </div>
   );

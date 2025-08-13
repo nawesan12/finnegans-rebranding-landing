@@ -23,8 +23,41 @@ const { title } = Astro.props;
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Caveat:wght@700&display=swap"
             rel="stylesheet"
         />
+        <link rel="stylesheet" href="https://use.typekit.net/rln1saj.css" />
+        <style is:global>
+            @font-face {
+                /* El nombre que usarás para referirte a la fuente */
+                font-family: "Bright Clones";
+
+                /* La ruta al archivo. Siempre empieza con '/' porque está en la carpeta `public` */
+                src: url("/fonts/Bright Clones Regular.ttf") format("truetype");
+
+                /* Propiedades para que el navegador sepa cuándo usarla */
+                font-weight: 400; /* 400 es el peso para 'normal' o 'regular' */
+                font-style: normal;
+
+                font-display: swap;
+            }
+
+            .hand-font {
+                font-family: "Bright Clones";
+                font-weight: 500;
+            }
+
+            .scandia {
+                font-family: "scandia-web", sans-serif;
+                font-weight: 400;
+                font-style: normal;
+            }
+
+            .handwritten-bold {
+                font-family: "scandia-web", sans-serif;
+                font-weight: 700;
+                font-style: normal;
+            }
+        </style>
     </head>
-    <body class="overflow-x-hidden">
+    <body class="overflow-x-hidden scandia">
         <slot />
     </body>
 </html>

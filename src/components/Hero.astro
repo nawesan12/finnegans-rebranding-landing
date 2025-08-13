@@ -21,7 +21,7 @@ const bgImageUrl = "/hero.png";
 >
     <!-- This div acts as a container for all content, ensuring consistent padding and max-width -->
     <div
-        class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-evenly py-6 lg:px-0"
+        class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-evenly py-6 px-6 lg:px-0"
     >
         <!-- Header: Contains logo and menu controls -->
         <header class="w-full">
@@ -40,7 +40,7 @@ const bgImageUrl = "/hero.png";
                     <a
                         href="#"
                         aria-label="LinkedIn"
-                        class="text-white/80 transition hover:text-white"
+                        class="text-white transition hover:text-white"
                     >
                         <img src="/Linkedin.svg" class="size-8" alt="" />
                     </a>
@@ -96,10 +96,10 @@ const bgImageUrl = "/hero.png";
         <!-- Main Heading -->
         <div class="text-white">
             <h2
-                class="text-6xl font-medium leading-none sm:text-6xl md:text-7xl lg:text-9xl whitespace-nowrap"
+                class="text-6xl font-medium leading-none sm:text-6xl md:text-7xl lg:text-[110px]"
             >
                 Te <br /> acompañamos <br /> al futuro que
-                <span class="font-handwritten">imaginamos.</span>
+                <span class="hand-font">imaginamos.</span>
             </h2>
         </div>
 
@@ -107,7 +107,11 @@ const bgImageUrl = "/hero.png";
         <div
             class="flex flex-col items-center justify-between gap-8 text-white md:flex-row"
         >
-            <img src="/nos-reinventamos.png" class="h-10 aspect-auto" alt="" />
+            <img
+                src="/nos-reinventamos.png"
+                class="h-10 aspect-auto object-contain"
+                alt=""
+            />
             <!-- <p class="text-center text-xl font-medium md:text-left md:text-2xl">
                 Nos reinventamos, con el <span class="relative inline-block">
                     <span class="font-handwritten text-2xl">cielo</span>
@@ -122,7 +126,7 @@ const bgImageUrl = "/hero.png";
 
             <!-- Desktop Bottom Navigation -->
             <nav class="hidden items-center text-lg font-medium md:flex">
-                <ul class="flex items-center gap-6 text-white/80">
+                <ul class="flex items-center gap-6 text-white">
                     <li>
                         <a
                             href="#soluciones"
