@@ -16,12 +16,11 @@ const bgImageUrl = "/hero.png";
 -->
 <section
     id="home"
-    class="relative min-h-screen bg-cover bg-center bg-no-repeat"
-    style={`background-image: url('${bgImageUrl}')`}
+    class="relative z-40 min-h-screen bg-[url('/hero-mobile.png')] md:bg-[url('/hero.png')] bg-cover bg-right lg:bg-center bg-no-repeat"
 >
     <!-- This div acts as a container for all content, ensuring consistent padding and max-width -->
     <div
-        class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-evenly py-6 px-6 lg:px-0"
+        class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0"
     >
         <!-- Header: Contains logo and menu controls -->
         <header class="w-full">
@@ -30,7 +29,7 @@ const bgImageUrl = "/hero.png";
                 <a href="/" class="z-50 text-4xl font-semibold md:text-5xl">
                     <img
                         src="/finnegans-blanco.png"
-                        class="aspect-auto h-16"
+                        class="aspect-auto h-8 lg:h-16"
                         alt=""
                     />
                 </a>
@@ -96,7 +95,7 @@ const bgImageUrl = "/hero.png";
         <!-- Main Heading -->
         <div class="text-white">
             <h2
-                class="text-6xl font-medium leading-none sm:text-6xl md:text-7xl lg:text-[110px]"
+                class="text-4xl font-medium leading-none sm:text-6xl md:text-7xl lg:text-[110px]"
             >
                 Te <br /> acompañamos <br /> al futuro que
                 <span class="hand-font">imaginamos.</span>

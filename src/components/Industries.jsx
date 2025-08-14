@@ -83,12 +83,12 @@ export default function App() {
   }, []);
 
   return (
-    <div className="font-sans text-white flex items-center justify-center bg-[#1C243B]">
-      <section id="soluciones" className="w-full py-20 lg:py-0">
+    <div className="font-sans text-white relative z-20 flex items-center justify-center bg-[#1C243B]">
+      <section id="soluciones" className="w-full py-20 lg:py-0 bg-[#1C243B]">
         <div className="lg:max-w-7xl mx-auto px-6 lg:px-0 flex flex-col lg:grid lg:grid-cols-2 gap-16">
           {/* Left Side: Title */}
-          <div className="text-left self-center">
-            <h3 className="text-7xl font-light">
+          <div className="relative z-40 text-left self-center bg-[#1C243B]">
+            <h3 className="text-7xl font-light bg-[#1C243B]">
               Grandes marcas <br /> que{" "}
               <span className="hand-font font-medium text-8xl text-violet-400">
                 confían
@@ -100,7 +100,7 @@ export default function App() {
 
           {/* Right Side: Image Carousel */}
           <div
-            className="relative flex items-center justify-center"
+            className="relative flex items-center"
             style={{ height: `${listItemHeight * visibleItems}rem` }}
           >
             <div className="relative w-full h-full">
@@ -109,39 +109,40 @@ export default function App() {
               <div className="absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#1C243B] to-transparent z-10"></div>
 
               <motion.ul
-                className="absolute w-full flex flex-col items-center"
+                className="absolute flex flex-col items-start left-0"
                 animate={controls}
               >
                 {infiniteLogos.map((logo, index) => {
                   const distance = Math.abs(index - scrollingIndex);
-
-                  let opacity = 0;
-                  let scale = 1; // default size
-
-                  if (distance === 0) {
-                    opacity = 1;
-                    scale = 1.2; // active item is bigger
-                  } else if (distance === 1) {
-                    opacity = 0.4;
-                    scale = 1; // slightly smaller
-                  } else if (distance === 2) {
-                    opacity = 0.2;
-                    scale = 0.9; // even smaller for far items
-                  }
+                  const isActive = distance === 0;
 
                   return (
                     <motion.li
                       key={`${logo.id}-${index}`}
-                      className="flex items-center justify-center"
+                      // Add flexbox to center the content within the list item
+                      className="flex items-center justify-center origin-left"
                       style={{ height: `${listItemHeight}rem` }}
-                      animate={{ opacity, scale }}
+                      animate={{ opacity: isActive ? 1 : 0.2 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
-                      <img
-                        src={logo.src}
-                        alt={`Logo del cliente ${(index % clientLogos.length) + 1}`}
-                        className="h-20 w-auto object-contain border rounded-full"
-                      />
+                      {isActive ? (
+                        // ACTIVE STATE: Use a styled wrapper div
+                        <div className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-transparent from-[40%] to-[#ffffff22] border-inset border-3 border-r-transparent border-l-white/20 border-t-white/20 border-b-transparent scale-110">
+                          <img
+                            src={logo.src}
+                            alt={`Logo del cliente ${(index % clientLogos.length) + 1}`}
+                            // The image itself just needs size and object-fit
+                            className="block h-20 w-auto object-contain"
+                          />
+                        </div>
+                      ) : (
+                        // INACTIVE STATE: The image is styled directly as before
+                        <img
+                          src={logo.src}
+                          alt={`Logo del cliente ${(index % clientLogos.length) + 1}`}
+                          className="block h-20 w-auto object-contain opacity-50 mix-blend-multiply"
+                        />
+                      )}
                     </motion.li>
                   );
                 })}

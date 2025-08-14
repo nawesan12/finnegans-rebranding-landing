@@ -84,9 +84,9 @@ export default function FinnegansProductosReact() {
 
   return (
     // Main container for the full-screen experience
-    <div className="font-sans relative min-h-screen w-full bg-gray-900">
+    <div className="font-sans relative z-40 min-h-screen w-full bg-gray-900">
       {/* Background Image Container - full screen */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full ">
         <AnimatePresence>
           <motion.img
             key={activeKey}
@@ -108,12 +108,11 @@ export default function FinnegansProductosReact() {
 
       {/* Flex container for positioning the modal */}
       {/* On mobile, it centers content. On md screens and up, it aligns to the start. */}
-      <div className="relative z-10 flex min-h-screen justify-between items-center gap-8">
-        {/* The actual info modal with responsive width, padding, and border radius */}
-
+      <div className="relative z-10 flex lg:flex-row flex-col justify-between items-end gap-8 py-40">
+        {/* LEFT panel */}
         <motion.div
           key={activeKey}
-          className={`w-full md:w-3/4 lg:w-1/2 rounded-r-3xl p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
+          className={`w-full md:w-3/4 lg:w-auto rounded-r-[60px] p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
         >
           {/* Inner content div */}
           <div className="flex flex-col gap-4">
@@ -147,32 +146,35 @@ export default function FinnegansProductosReact() {
             </p>
 
             {/* Navigation Icon Buttons */}
-            <div className="pt-8 flex items-center space-x-2 md:space-x-3">
-              {productKeys.map((key) => (
-                <button
-                  key={key}
-                  onClick={() => setActiveKey(key)}
-                  aria-label={`Select ${products[key].title}`}
-                  className={`p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${
-                    activeKey === key
-                      ? `bg-white shadow-lg`
-                      : activeProduct.text === "text-white"
-                        ? "bg-white/20 hover:bg-white/30"
-                        : "bg-black/10 hover:bg-black/20"
-                  }`}
-                >
-                  <IconRenderer
-                    iconKey={key}
-                    isActive={activeKey === key}
-                    activeProduct={activeProduct}
-                  />
-                </button>
-              ))}
+            <div className="pt-8 flex items-center justify-between space-x-2 md:space-x-3">
+              <p>Productos</p>
+              <div className="flex items-center space-x-2 md:space-x-3">
+                {productKeys.map((key) => (
+                  <button
+                    key={key}
+                    onClick={() => setActiveKey(key)}
+                    aria-label={`Select ${products[key].title}`}
+                    className={`p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${
+                      activeKey === key
+                        ? `bg-white shadow-lg`
+                        : activeProduct.text === "text-white"
+                          ? "bg-white/20 hover:bg-white/30"
+                          : "bg-black/10 hover:bg-black/20"
+                    }`}
+                  >
+                    <IconRenderer
+                      iconKey={key}
+                      isActive={activeKey === key}
+                      activeProduct={activeProduct}
+                    />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>
 
-        <div className="w-full md:w-1/3 bg-white/80 backdrop-blur-lg p-8 sm:p-12 md:p-16 rounded-l-full text-gray-900 self-end">
+        <div className="w-2/3 md:w-1/4 bg-white py-3 p-8 sm:px-12 md:px-16  rounded-l-full text-gray-900">
           <img
             src="/Isologotipo Principal Finni .svg"
             alt="Isologotipo Principal Finni"
