@@ -25,17 +25,19 @@ const products = {
       "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
-    image: "/foto-1.png",
+    image: "/foto-2.png",
+    logo: "/Quippos/Isotipo Sobrecolor.svg",
   },
   academia: {
     title: "Finnegans Academia",
     bg: "bg-[#01A49E]",
     text: "text-white",
     description:
-      "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen al máximo la tecnología.",
+      "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen.",
     badgeBg: "bg-white/20",
     badgeText: "text-white",
-    image: "/foto-2.png",
+    image: "/foto-1.png",
+    logo: "/GO/Iso Color Especial.svg",
   },
 };
 
@@ -123,7 +125,7 @@ export default function FinnegansProductosReact() {
             </span>
             {/* Responsive logo size */}
             <img
-              src="/favicon.svg"
+              src={activeProduct.logo}
               alt="Finnegans Logo"
               className="w-20 h-20 md:w-24 md:h-24"
             />
@@ -147,7 +149,9 @@ export default function FinnegansProductosReact() {
 
             {/* Navigation Icon Buttons */}
             <div className="pt-8 flex items-center justify-between space-x-2 md:space-x-3">
-              <p>Productos</p>
+              <p className="text-black bg-white rounded-full p-1 px-4 text-xl font-medium">
+                PRODUCTOS
+              </p>
               <div className="flex items-center space-x-2 md:space-x-3">
                 {productKeys.map((key) => (
                   <button
@@ -174,11 +178,27 @@ export default function FinnegansProductosReact() {
           </div>
         </motion.div>
 
-        <div className="w-2/3 md:w-1/4 bg-white py-3 p-8 sm:px-12 md:px-16  rounded-l-full text-gray-900">
-          <img
-            src="/Isologotipo Principal Finni .svg"
-            alt="Isologotipo Principal Finni"
-          />
+        <div className="flex rounded-l-full border-2 border-t-white/60 border-l-white/30 border-b-white/20 border-r-transparent bg-gradient-to-r from-transparent from-[24%] to-[#ffffff] backdrop-blur-xs overflow-hidden shadow-lg">
+          {/* 1. Frosted Glass Section (Left) */}
+          <div className="px-12 py-6 flex items-center">
+            <p className="text-white text-xl md:text-2xl font-light leading-none">
+              Nuestro
+              <br />
+              asistente de IA
+              <br />
+              para cada producto.
+            </p>
+          </div>
+
+          {/* 2. White Logo Section (Right) */}
+          <div className="bg-white rounded-l-full px-4 py-2 flex items-center">
+            <img
+              // IMPORTANT: Replace with the path to your Finni logo
+              src="/Isologotipo Principal Finni.svg"
+              alt="Logo de Finni"
+              className="h-28" // Adjust height as needed
+            />
+          </div>
         </div>
       </div>
     </div>
