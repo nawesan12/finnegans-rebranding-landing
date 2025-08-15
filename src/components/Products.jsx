@@ -166,7 +166,7 @@ export default function FinnegansProductosReact() {
               <img
                 src="/ui/finni-banner.png"
                 alt=""
-                className="h-16 sm:h-20 object-contain lg:hidden"
+                className="h-12 lg:h-20 object-contain lg:hidden"
               />
             </div>
           </div>
