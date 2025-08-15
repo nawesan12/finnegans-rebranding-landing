@@ -17,25 +17,24 @@ const { title } = Astro.props;
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>{title}</title>
+
+        <!-- Google Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Caveat:wght@700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Caveat:wght@700&family=Poppins:wght@400;500;700&display=swap"
             rel="stylesheet"
         />
+
+        <!-- Typekit (still included if you use it for other fonts) -->
         <link rel="stylesheet" href="https://use.typekit.net/rln1saj.css" />
+
         <style is:global>
             @font-face {
-                /* El nombre que usarás para referirte a la fuente */
                 font-family: "Bright Clones";
-
-                /* La ruta al archivo. Siempre empieza con '/' porque está en la carpeta `public` */
                 src: url("/fonts/Bright Clones Regular.ttf") format("truetype");
-
-                /* Propiedades para que el navegador sepa cuándo usarla */
-                font-weight: 400; /* 400 es el peso para 'normal' o 'regular' */
+                font-weight: 400;
                 font-style: normal;
-
                 font-display: swap;
             }
 
@@ -44,20 +43,27 @@ const { title } = Astro.props;
                 font-weight: 500;
             }
 
-            .scandia {
-                font-family: "scandia-web", sans-serif;
+            /* Replace scandia with Poppins */
+            .poppins {
+                font-family: "Poppins", sans-serif;
                 font-weight: 400;
                 font-style: normal;
             }
 
-            .handwritten-bold {
-                font-family: "scandia-web", sans-serif;
+            .poppins-semibold {
+                font-family: "Poppins", sans-serif;
+                font-weight: 500;
+                font-style: normal;
+            }
+
+            .poppins-bold {
+                font-family: "Poppins", sans-serif;
                 font-weight: 700;
                 font-style: normal;
             }
         </style>
     </head>
-    <body class="overflow-x-hidden scandia">
+    <body class="overflow-x-hidden poppins">
         <slot />
     </body>
 </html>

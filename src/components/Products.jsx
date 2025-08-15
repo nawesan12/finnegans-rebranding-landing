@@ -17,17 +17,6 @@ import { motion, AnimatePresence } from "framer-motion";
  * @type {Object.<string, Product>}
  */
 const products = {
-  quippos: {
-    title: "Finnegans Quippos",
-    bg: "bg-[#C1A3FF]",
-    text: "text-gray-800",
-    description:
-      "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
-    badgeBg: "bg-white/50",
-    badgeText: "text-black",
-    image: "/foto-2.png",
-    logo: "/Quippos/Isotipo Sobrecolor.svg",
-  },
   academia: {
     title: "Finnegans Academia",
     bg: "bg-[#01A49E]",
@@ -38,6 +27,19 @@ const products = {
     badgeText: "text-white",
     image: "/foto-1.png",
     logo: "/GO/Iso Color Especial.svg",
+    activeLogo: "/GO/Isotipo Ppal Color.svg",
+  },
+  quippos: {
+    title: "Finnegans Quippos",
+    bg: "bg-[#C1A3FF]",
+    text: "text-gray-800",
+    description:
+      "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
+    badgeBg: "bg-white/50",
+    badgeText: "text-black",
+    image: "/foto-2.png",
+    logo: "/Quippos/Isotipo Sobrecolor.svg",
+    activeLogo: "/Quippos/Isotipo Lila.svg",
   },
 };
 
@@ -46,35 +48,16 @@ const productKeys = Object.keys(products);
 /**
  * Renders the correct SVG icon based on the product key.
  */
-function IconRenderer({ iconKey, isActive, activeProduct }) {
-  const iconColorClass = isActive
-    ? activeProduct.text === "text-white"
-      ? "text-gray-800"
-      : "text-gray-900"
-    : activeProduct.text === "text-white"
-      ? "text-white/80"
-      : "text-black/70";
+function IconRenderer({ iconKey, isActive }) {
+  const product = products[iconKey];
 
-  const className = `w-6 h-6 transition-colors duration-300 ${iconColorClass}`;
-
-  const icons = {
-    quippos: (
-      <img
-        src="/Quippos/Isotipo Sobrecolor.svg"
-        alt="Quippos Icon"
-        className={className}
-      />
-    ),
-    academia: (
-      <img
-        src="/GO/Iso Color Especial.svg"
-        alt="Academia Icon"
-        className={className}
-      />
-    ),
-  };
-
-  return icons[iconKey] || null;
+  return (
+    <img
+      src={isActive ? product.activeLogo : product.logo}
+      alt={`${product.title} Icon`}
+      className="w-8 h-8 transition-all duration-300"
+    />
+  );
 }
 
 /**
@@ -85,10 +68,9 @@ export default function FinnegansProductosReact() {
   const activeProduct = products[activeKey];
 
   return (
-    // Main container for the full-screen experience
     <div className="font-sans relative z-40 min-h-screen w-full bg-gray-900">
-      {/* Background Image Container - full screen */}
-      <div className="absolute inset-0 w-full ">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full">
         <AnimatePresence>
           <motion.img
             key={activeKey}
@@ -108,37 +90,36 @@ export default function FinnegansProductosReact() {
         </AnimatePresence>
       </div>
 
-      {/* Flex container for positioning the modal */}
-      {/* On mobile, it centers content. On md screens and up, it aligns to the start. */}
-      <div className="relative z-10 flex lg:flex-row flex-col justify-between items-end gap-8 py-40">
+      {/* Content container */}
+      <div className="relative z-10 flex flex-col lg:flex-row justify-between items-end gap-6 md:gap-10 lg:gap-16 pb-12 md:py-20 lg:py-40">
         {/* LEFT panel */}
         <motion.div
           key={activeKey}
-          className={`w-full md:w-3/4 lg:w-auto rounded-r-[60px] p-8 sm:p-12 md:p-16 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
+          className={`w-full lg:w-auto lg:rounded-r-[60px] p-6 sm:p-10 md:p-12 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
         >
-          {/* Inner content div */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             <span
-              className={`text-xs max-w-max font-bold px-3 py-1 rounded-full inline-block transition-colors duration-500 ${activeProduct.badgeBg} ${activeProduct.badgeText}`}
+              className={`text-[10px] sm:text-xs max-w-max font-bold px-3 py-1 rounded-full inline-block transition-colors duration-500 ${activeProduct.badgeBg} ${activeProduct.badgeText}`}
             >
               PRODUCTOS
             </span>
-            {/* Responsive logo size */}
+            {/* Active logo */}
             <img
-              src={activeProduct.logo}
-              alt="Finnegans Logo"
-              className="w-20 h-20 md:w-24 md:h-24"
+              src={activeProduct.activeLogo}
+              alt={`${activeProduct.title} Logo`}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
             />
-            {/* Responsive title font size */}
-            <h3 className="text-5xl sm:text-6xl lg:text-8xl font-semibold mt-4">
+            {/* Title */}
+            <h3 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-semibold mt-2 sm:mt-4 leading-tight">
               {activeProduct.title.split(" ").map((word, index) => (
                 <span key={index} className="block">
                   {word}
                 </span>
               ))}
             </h3>
+            {/* Description */}
             <p
-              className={`mt-4 text-base md:text-lg max-w-lg transition-colors duration-500 ${
+              className={`mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-lg transition-colors duration-500 ${
                 activeProduct.text === "text-white"
                   ? "text-white/80"
                   : "text-gray-700/90"
@@ -147,18 +128,18 @@ export default function FinnegansProductosReact() {
               {activeProduct.description}
             </p>
 
-            {/* Navigation Icon Buttons */}
-            <div className="pt-8 flex items-center justify-between space-x-2 md:space-x-3">
-              <p className="text-black bg-white rounded-full p-1 px-4 text-xl font-medium">
+            {/* Navigation */}
+            <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium">
                 PRODUCTOS
               </p>
-              <div className="flex items-center space-x-2 md:space-x-3">
+              <div className="flex items-center gap-2 sm:gap-3">
                 {productKeys.map((key) => (
                   <button
                     key={key}
                     onClick={() => setActiveKey(key)}
                     aria-label={`Select ${products[key].title}`}
-                    className={`p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${
+                    className={`p-2 sm:p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${
                       activeKey === key
                         ? `bg-white shadow-lg`
                         : activeProduct.text === "text-white"
@@ -166,10 +147,14 @@ export default function FinnegansProductosReact() {
                           : "bg-black/10 hover:bg-black/20"
                     }`}
                   >
-                    <IconRenderer
-                      iconKey={key}
-                      isActive={activeKey === key}
-                      activeProduct={activeProduct}
+                    <img
+                      src={
+                        activeKey === key
+                          ? products[key].activeLogo
+                          : products[key].logo
+                      }
+                      alt={`${products[key].title} Icon`}
+                      className="w-5 h-5 sm:w-6 sm:h-6"
                     />
                   </button>
                 ))}
@@ -178,27 +163,13 @@ export default function FinnegansProductosReact() {
           </div>
         </motion.div>
 
-        <div className="flex rounded-l-full border-2 border-t-white/60 border-l-white/30 border-b-white/20 border-r-transparent bg-gradient-to-r from-transparent from-[24%] to-[#ffffff] backdrop-blur-xs overflow-hidden shadow-lg">
-          {/* 1. Frosted Glass Section (Left) */}
-          <div className="px-12 py-6 flex items-center">
-            <p className="text-white text-xl md:text-2xl font-light leading-none">
-              Nuestro
-              <br />
-              asistente de IA
-              <br />
-              para cada producto.
-            </p>
-          </div>
-
-          {/* 2. White Logo Section (Right) */}
-          <div className="bg-white rounded-l-full px-4 py-2 flex items-center">
-            <img
-              // IMPORTANT: Replace with the path to your Finni logo
-              src="/Isologotipo Principal Finni.svg"
-              alt="Logo de Finni"
-              className="h-28" // Adjust height as needed
-            />
-          </div>
+        {/* RIGHT banner */}
+        <div className="flex justify-center lg:justify-end">
+          <img
+            src="/ui/finni-banner.png"
+            alt=""
+            className="h-20 sm:h-28 md:h-36 object-contain"
+          />
         </div>
       </div>
     </div>

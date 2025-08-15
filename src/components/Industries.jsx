@@ -89,12 +89,11 @@ export default function App() {
           {/* Left Side: Title */}
           <div className="relative z-40 text-left self-center bg-[#1C243B]">
             <h3 className="text-7xl font-light bg-[#1C243B]">
-              Grandes marcas <br /> que{" "}
-              <span className="hand-font font-medium text-8xl text-violet-400">
-                confían
+              Tecnología <br /> que se{" "}
+              <span className="hand-font font-medium text-8xl text-[#4bc3fe]">
+                adapta
               </span>{" "}
-              <br />
-              en nosotros.
+              <br />a tu industria.
             </h3>
           </div>
 
@@ -122,7 +121,7 @@ export default function App() {
                       // Add flexbox to center the content within the list item
                       className="flex items-center justify-center origin-left"
                       style={{ height: `${listItemHeight}rem` }}
-                      animate={{ opacity: isActive ? 1 : 0.2 }}
+                      animate={{ opacity: isActive ? 1 : 0.1 }}
                       transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
                       {isActive ? (
