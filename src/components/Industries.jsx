@@ -24,10 +24,10 @@ export default function App() {
             playsInline
             preload="auto"
             style={{
-              height: "100%",
               maxWidth: "800px",
               display: "block",
             }}
+            className="lg:h-full w-full max-w-screen max-h-screen"
           >
             <source src="industrias.mp4" type="video/mp4" />
             Your browser does not support the video tag.
