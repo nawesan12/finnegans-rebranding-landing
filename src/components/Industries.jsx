@@ -3,7 +3,7 @@ export default function App() {
   return (
     <div className="font-sans text-white relative z-20 flex py-20 items-center justify-center bg-[#020e33]">
       <section id="soluciones" className="w-full py-20 lg:py-0 bg-[#020e33]">
-        <div className="lg:max-w-7xl mx-auto px-6 lg:px-0 flex flex-col lg:grid lg:grid-cols-2 gap-12">
+        <div className="lg:max-w-7xl mx-auto px-6 lg:px-0 flex flex-col items-center justify-center lg:grid lg:grid-cols-2 gap-12">
           {/* Left Side: Title */}
           <div className="relative z-40 text-left self-center bg-[#020e33]">
             <h3 className="text-7xl font-light bg-[#020e33]">
@@ -24,9 +24,8 @@ export default function App() {
             playsInline
             preload="auto"
             style={{
-              width: "100%",
+              height: "100%",
               maxWidth: "800px",
-              height: "auto",
               display: "block",
             }}
           >

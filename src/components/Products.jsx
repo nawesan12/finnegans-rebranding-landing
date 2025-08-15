@@ -69,8 +69,8 @@ export default function FinnegansProductosReact() {
 
   return (
     <div className="font-sans relative z-40 min-h-screen w-full bg-gray-900">
-      {/* Background Image */}
-      <div className="absolute inset-0 w-full">
+      {/* Background */}
+      <div className="absolute inset-0 w-full z-0">
         <AnimatePresence>
           <motion.img
             key={activeKey}
@@ -81,45 +81,50 @@ export default function FinnegansProductosReact() {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.7, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full object-cover"
-            onError={(e) => {
-              e.target.onerror = null;
-              e.target.src =
-                "https://placehold.co/1920x1080/cccccc/ffffff?text=Image+Not+Found";
-            }}
           />
         </AnimatePresence>
       </div>
 
-      {/* Content container */}
-      <div className="relative z-10 flex flex-col lg:flex-row justify-between items-end gap-6 md:gap-10 lg:gap-16 pb-12 md:py-20 lg:py-40">
+      {/* "PRODUCTOS" absolute label */}
+      <p className="absolute top-4 left-1/2 -translate-x-1/2 text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
+        PRODUCTOS
+      </p>
+
+      {/* Content */}
+      <div className="relative z-10 flex flex-col lg:flex-row lg:justify-between items-end justify-end gap-6 md:gap-10 lg:gap-16 lg:pb-12 md:py-20 lg:py-40 min-h-screen">
         {/* LEFT panel */}
         <motion.div
           key={activeKey}
-          className={`w-full lg:w-auto lg:rounded-r-[60px] p-6 sm:p-10 md:p-12 lg:pl-32 transition-colors duration-500 ${activeProduct.bg} ${activeProduct.text}`}
+          className={`
+              mt-auto
+              w-full lg:w-auto
+
+              py-6 pl-6 sm:p-10 md:p-12 lg:pl-32
+              transition-colors duration-500
+              ${activeProduct.bg} ${activeProduct.text}
+              ${"lg:rounded-r-[60px] rounded-tr-[50%]"}
+            `}
         >
           <div className="flex flex-col gap-3 sm:gap-4">
-            <span
-              className={`text-[10px] sm:text-xs max-w-max font-bold px-3 py-1 rounded-full inline-block transition-colors duration-500 ${activeProduct.badgeBg} ${activeProduct.badgeText}`}
-            >
-              PRODUCTOS
-            </span>
             {/* Active logo */}
             <img
-              src={activeProduct.activeLogo}
+              src={activeProduct.logo}
               alt={`${activeProduct.title} Logo`}
               className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24"
             />
+
             {/* Title */}
-            <h3 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-semibold mt-2 sm:mt-4 leading-tight">
+            <h3 className="text-6xl md:text-6xl lg:text-8xl font-semibold mt-2 sm:mt-4 leading-tight">
               {activeProduct.title.split(" ").map((word, index) => (
                 <span key={index} className="block">
                   {word}
                 </span>
               ))}
             </h3>
+
             {/* Description */}
             <p
-              className={`mt-3 sm:mt-4 text-sm sm:text-base md:text-lg max-w-lg transition-colors duration-500 ${
+              className={`mt-3 sm:mt-4 text-lg sm:text-base md:text-lg max-w-lg transition-colors duration-500 ${
                 activeProduct.text === "text-white"
                   ? "text-white/80"
                   : "text-gray-700/90"
@@ -128,18 +133,15 @@ export default function FinnegansProductosReact() {
               {activeProduct.description}
             </p>
 
-            {/* Navigation */}
-            <div className="pt-6 sm:pt-8 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium">
-                PRODUCTOS
-              </p>
+            {/* Navigation + Banner in mobile */}
+            <div className="pt-6 sm:pt-8 flex items-center justify-between gap-3">
               <div className="flex items-center gap-2 sm:gap-3">
                 {productKeys.map((key) => (
                   <button
                     key={key}
                     onClick={() => setActiveKey(key)}
                     aria-label={`Select ${products[key].title}`}
-                    className={`p-2 sm:p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white ${
+                    className={`p-2 sm:p-3 rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
                       activeKey === key
                         ? `bg-white shadow-lg`
                         : activeProduct.text === "text-white"
@@ -159,12 +161,19 @@ export default function FinnegansProductosReact() {
                   </button>
                 ))}
               </div>
+
+              {/* Banner (mobile only here) */}
+              <img
+                src="/ui/finni-banner.png"
+                alt=""
+                className="h-16 sm:h-20 object-contain lg:hidden"
+              />
             </div>
           </div>
         </motion.div>
 
-        {/* RIGHT banner */}
-        <div className="flex justify-center lg:justify-end">
+        {/* RIGHT banner (desktop only) */}
+        <div className="hidden lg:flex justify-center lg:justify-end">
           <img
             src="/ui/finni-banner.png"
             alt=""
