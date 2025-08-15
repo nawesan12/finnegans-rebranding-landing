@@ -114,7 +114,7 @@ export default function FinnegansProductosReact() {
             />
 
             {/* Title */}
-            <h3 className="text-6xl md:text-6xl lg:text-8xl font-semibold mt-2 sm:mt-4 leading-tight">
+            <h3 className="text-6xl md:text-6xl lg:text-8xl font-semibold mt-2 sm:mt-4 leading-none">
               {activeProduct.title.split(" ").map((word, index) => (
                 <span key={index} className="block">
                   {word}
@@ -164,9 +164,9 @@ export default function FinnegansProductosReact() {
 
               {/* Banner (mobile only here) */}
               <img
-                src="/ui/finni-banner.png"
+                src="/finni.png"
                 alt=""
-                className="h-12 lg:h-20 object-contain lg:hidden"
+                className="h-12 lg:h-24 object-contain lg:hidden"
               />
             </div>
           </div>
@@ -175,9 +175,9 @@ export default function FinnegansProductosReact() {
         {/* RIGHT banner (desktop only) */}
         <div className="hidden lg:flex justify-center lg:justify-end">
           <img
-            src="/ui/finni-banner.png"
+            src="/finni.png"
             alt=""
-            className="h-20 sm:h-28 md:h-36 object-contain"
+            className="h-28 md:h-40 object-contain"
           />
         </div>
       </div>

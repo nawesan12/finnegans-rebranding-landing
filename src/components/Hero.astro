@@ -23,7 +23,7 @@ const bgImageUrl = "/hero.png";
         class="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0"
     >
         <!-- Header: Contains logo and menu controls -->
-        <header class="w-full">
+        <header class="w-full lg:relative lg:top-20">
             <div class="flex items-center justify-between text-white">
                 <!-- Logo with responsive font size -->
                 <a href="/" class="z-50 text-4xl font-semibold md:text-5xl">
@@ -35,20 +35,30 @@ const bgImageUrl = "/hero.png";
                 </a>
 
                 <!-- Desktop Navigation (Visible on md screens and up) -->
-                <nav class="hidden items-center space-x-6 md:flex">
+                <nav
+                    class="hidden items-center space-x-6 md:flex lg:relative lg:-top-8"
+                >
                     <a
                         href="#"
                         aria-label="LinkedIn"
                         class="text-white transition hover:text-white"
                     >
-                        <img src="/Linkedin.svg" class="size-8" alt="" />
+                        <img
+                            src="/Linkedin.svg"
+                            class="size-8 drop-shadow-xl"
+                            alt=""
+                        />
                     </a>
                     <a
                         href="#"
                         aria-label="Instagram"
                         class="text-white/80 transition hover:text-white"
                     >
-                        <img src="/Instagram.svg" class="size-6" alt="" />
+                        <img
+                            src="/Instagram.svg"
+                            class="size-6 drop-shadow-xl"
+                            alt=""
+                        />
                     </a>
                 </nav>
 
@@ -94,14 +104,15 @@ const bgImageUrl = "/hero.png";
 
         <!-- Main Heading -->
         <!-- Main Heading -->
-        <div class="text-white mt-auto md:mt-0 mb-12 lg:mb-0">
+        <div class="text-white mt-auto lg:mt-0 md:mt-0 mb-12 lg:mb-0">
             <h2
-                class="text-4xl poppins-semibold leading-relaxed md:text-7xl lg:text-[110px] whitespace-nowrap"
+                class="text-4xl poppins-semibold lg:leading-none leading-normal md:text-7xl lg:text-[110px] whitespace-nowrap"
             >
                 Te <br /> invitamos al futuro <br /> que
                 <div class="inline-flex relative max-w-max">
                     <span
-                        class="hand-font text-7xl md:text-8xl lg:text-[160px] relative top-2 lg:top-4 z-20"
+                        class="hand-font text-7xl md:text-8xl lg:text-[160px] relative leading-none top-2 lg:top-4 z-20 align-text-top"
+                        style="line-height: 0.5; display: inline-block; vertical-align: baseline;"
                     >
                         imaginamos.
                     </span>
@@ -109,7 +120,7 @@ const bgImageUrl = "/hero.png";
                     <img
                         src="/ui/linea-imaginamos.png"
                         alt=""
-                        class="object-contain w-full absolute z-10 bottom-2 lg:bottom-4"
+                        class="object-contain w-full absolute z-10 -bottom-2 lg:-bottom-4"
                     />
                 </div>
             </h2>
@@ -117,7 +128,7 @@ const bgImageUrl = "/hero.png";
 
         <!-- Footer within the hero -->
         <div
-            class="flex flex-col items-center justify-between gap-8 text-white md:flex-row"
+            class="flex flex-col items-center justify-between lg:relative lg:bottom-6 gap-8 text-white md:flex-row"
         >
             <img
                 src="/nos-reinventamos.png"
