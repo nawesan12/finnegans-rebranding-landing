@@ -1,19 +1,19 @@
 ---
 import Layout from "../layouts/MainLayout.astro";
-import Hero from "../components/Hero.astro";
+import Hero from "../components/Hero";
 import Industries from "../components/Industries";
 import Products from "../components/Products";
-import Philosophy from "../components/Philosophy.astro";
+import Philosophy from "../components/Philosophy";
 import Cta from "../components/Cta.astro";
 import Footer from "../components/Footer.astro";
 ---
 
 <Layout title="Finnegans | Te acompañamos al futuro que imaginamos">
     <main>
-        <Hero />
+        <Hero client:load />
         <Industries client:visible />
         <Products client:visible />
-        <Philosophy />
+        <Philosophy client:load />
         <Cta />
     </main>
     <Footer />
