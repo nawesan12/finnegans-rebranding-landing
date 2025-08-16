@@ -8,9 +8,9 @@ export default function App() {
       <div className="lg:max-w-7xl mx-auto lg:px-0 flex flex-col items-center justify-center gap-20 lg:grid lg:grid-cols-3 lg:gap-16">
         {/* Left Side: Title */}
         <div className="relative z-40 text-left self-center bg-[#020e33] lg:col-span-1 px-2">
-          <h3 className="text-6xl font-light bg-[#020e33] lg:text-7xl whitespace-nowrap poppins-medium">
+          <h3 className="text-5xl font-light bg-[#020e33] lg:text-7xl whitespace-nowrap poppins-medium">
             Tecnología <br /> que se{" "}
-            <span className="hand-font font-medium text-8xl text-[#4bc3fe] relative top-2">
+            <span className="hand-font font-medium text-7xl text-[#4bc3fe] relative top-2">
               adapta
             </span>{" "}
             <br />a tu industria.
