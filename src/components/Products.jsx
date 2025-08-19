@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const products = {
@@ -18,7 +18,7 @@ const products = {
   quippos: {
     title: "Finnegans Quippos",
     bg: "bg-[#a282ef]",
-    text: "text-gray-800",
+    text: "text-white",
     description:
       "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
     badgeBg: "bg-white/50",
@@ -36,6 +36,19 @@ export default function FinnegansProductosReact() {
   const [activeKey, setActiveKey] = useState(productKeys[0]);
   const [menuOpen, setMenuOpen] = useState(false);
   const activeProduct = products[activeKey];
+
+  useEffect(() => {
+    if (menuOpen) return;
+    const interval = setInterval(() => {
+      setActiveKey((prevKey) => {
+        const currentIndex = productKeys.indexOf(prevKey);
+        const nextIndex = (currentIndex + 1) % productKeys.length;
+        return productKeys[nextIndex];
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [menuOpen]);
 
   return (
     <div
@@ -100,13 +113,13 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-auto
-              py-6 pl-6  pr-0 lg:pl-32
+              py-6 pl-6 pr-0 lg:pl-32
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[50%]
             `}
           >
-            <div className="flex flex-col pl-4">
+            <div className="flex flex-col">
               <p className="block max-w-max text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
                 PRODUCTOS
               </p>
@@ -114,7 +127,7 @@ export default function FinnegansProductosReact() {
               <img
                 src={activeProduct.logo}
                 alt={`${activeProduct.title} Logo`}
-                className="w-auto h-52 md:h-80 pt-12 pb-4 pl-4 lg:pl-0 object-cover  max-w-max relative right-4"
+                className="w-auto h-52 md:h-80 pt-12 pb-4 pl-4 lg:pl-2 object-cover  max-w-max relative right-4"
               />
 
               <p

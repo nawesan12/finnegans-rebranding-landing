@@ -11,7 +11,7 @@ export default function Hero() {
       id="home"
       className="relative z-40 min-h-screen bg-[url('/hero-mobile.png')] md:bg-[url('/hero.webp')] bg-cover bg-right lg:bg-center bg-no-repeat"
     >
-      <div className="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0">
+      <div className="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0 relative md:-top-6">
         {/* Header */}
         <motion.header
           className="w-full lg:relative lg:top-20"
@@ -30,7 +30,7 @@ export default function Hero() {
 
             {/* Desktop Nav */}
             <motion.nav
-              className="hidden items-center space-x-6 md:flex lg:relative lg:-top-8"
+              className="hidden items-center space-x-6 md:flex"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -160,6 +160,7 @@ export default function Hero() {
       </div>
 
       {/* 🔥 Inline burger CSS (must be global or in your CSS file) */}
+      {/*@ts-expect-error bla*/}
       <style jsx global>{`
         .hamburger {
           cursor: pointer;
