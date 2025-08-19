@@ -52,60 +52,12 @@ export default function FinnegansProductosReact() {
 
   return (
     <div
-      className={`font-sans relative z-40 min-h-screen bg-cover transition-all duration-200 w-full bg-gray-900 overflow-x-hidden`}
+      className={`font-sans relative z-40 min-h-screen bg-cover  transition-all duration-200 w-full bg-gray-900 overflow-x-hidden`}
       style={{
         backgroundImage: `url('${activeProduct.image}')`,
+        backgroundPosition: "60% 60%",
       }}
     >
-      {/* Burger Menu (mobile) */}
-      <div className="absolute top-4 right-4 z-50 lg:hidden">
-        <button
-          className="p-2 bg-black/40 rounded-lg"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <div className="space-y-1">
-            <span className="block w-6 h-0.5 bg-white"></span>
-            <span className="block w-6 h-0.5 bg-white"></span>
-            <span className="block w-6 h-0.5 bg-white"></span>
-          </div>
-        </button>
-      </div>
-
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-64 bg-black/90 text-white flex flex-col p-6 z-50 lg:hidden"
-          >
-            <button
-              className="self-end mb-6"
-              onClick={() => setMenuOpen(false)}
-            >
-              ✕
-            </button>
-            {productKeys.map((key) => (
-              <button
-                key={key}
-                onClick={() => {
-                  setActiveKey(key);
-                  setMenuOpen(false);
-                }}
-                className={`mb-4 py-2 px-4 rounded-lg text-left ${
-                  activeKey === key
-                    ? "bg-white text-black"
-                    : "hover:bg-white/20"
-                }`}
-              >
-                {products[key].title}
-              </button>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-
       <div className="z-10 flex items-end justify-between min-w-screen lg:items-center min-h-screen">
         {/* Content */}
         <div className="flex flex-col w-sreen lg:w-auto lg:flex-row lg:justify-between lg:items-end gap-6 md:gap-10 lg:gap-16">
@@ -113,25 +65,25 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-auto
-              py-6 pl-6 pr-0 lg:pl-32
+              py-6 pl-13 pr-0 lg:pl-32
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
-              lg:rounded-r-[60px] rounded-tr-[50%]
+              lg:rounded-r-[60px] rounded-tr-[55%] relative
             `}
           >
             <div className="flex flex-col">
-              <p className="block max-w-max text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
+              <p className="block max-w-max absolute left-10 -top-3 text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
                 PRODUCTOS
               </p>
 
               <img
                 src={activeProduct.logo}
                 alt={`${activeProduct.title} Logo`}
-                className="w-auto h-52 md:h-80 pt-12 pb-4 pl-4 lg:pl-2 object-cover  max-w-max relative right-4"
+                className="w-auto h-56 md:h-80 pt-12 pb-4 pl-4 lg:pl-2 object-cover  max-w-max relative right-4"
               />
 
               <p
-                className={`mt-3 sm:mt-4 lg:text-lg text-md  sm:text-base md:text-lg max-w-lg  pr-8 md:pr-12  transition-colors duration-500 ${
+                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-lg text-sm md:text-lg max-w-lg  pr-8 md:pr-12 leading-5  transition-colors duration-500 ${
                   activeProduct.text === "text-white"
                     ? "text-white/80"
                     : "text-gray-700/90"
@@ -165,16 +117,16 @@ export default function FinnegansProductosReact() {
                             : products[key].isoLogo
                         }
                         alt={`${products[key].title} Icon`}
-                        className="size-12 aspect-square object-contain"
+                        className="lg:size-12 size-9 aspect-square object-contain"
                       />
                     </button>
                   ))}
                 </div>
 
                 <img
-                  src="/finni.png"
+                  src="/boton-finni-mobile.png"
                   alt=""
-                  className="h-12 object-contain lg:hidden"
+                  className="h-28 object-contain lg:hidden"
                 />
               </div>
             </div>
