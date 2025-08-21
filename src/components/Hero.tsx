@@ -77,13 +77,25 @@ export default function Hero() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <a href="#soluciones" className="hover:text-violet-400">
+              <a
+                href="#soluciones"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-violet-400"
+              >
                 Soluciones
               </a>
-              <a href="#academia" className="hover:text-violet-400">
+              <a
+                href="#academia"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-violet-400"
+              >
                 Academia
               </a>
-              <a href="#impacto" className="hover:text-violet-400">
+              <a
+                href="#impacto"
+                onClick={() => setMenuOpen(false)}
+                className="hover:text-violet-400"
+              >
                 Impacto
               </a>
               <div className="flex items-center gap-8 pt-8">
