@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const products = {
@@ -39,18 +39,33 @@ export default function FinnegansProductosReact() {
   const [menuOpen, setMenuOpen] = useState(false);
   const activeProduct = products[activeKey];
 
-  useEffect(() => {
-    if (menuOpen) return;
-    const interval = setInterval(() => {
+  const intervalRef = useRef(null);
+  const startInterval = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    if (menuOpen) return; // don't run while menu is open
+    intervalRef.current = window.setInterval(() => {
       setActiveKey((prevKey) => {
         const currentIndex = productKeys.indexOf(prevKey);
         const nextIndex = (currentIndex + 1) % productKeys.length;
         return productKeys[nextIndex];
       });
     }, 4000);
-
-    return () => clearInterval(interval);
   }, [menuOpen]);
+
+  useEffect(() => {
+    startInterval();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [startInterval]);
+
+  const handleSelect = (key) => {
+    setActiveKey(key);
+    startInterval();
+  };
 
   const [isMobile, setIsMobile] = useState(false);
 
@@ -113,7 +128,7 @@ export default function FinnegansProductosReact() {
                   {productKeys.map((key) => (
                     <button
                       key={key}
-                      onClick={() => setActiveKey(key)}
+                      onClick={() => handleSelect(key)}
                       aria-label={`Select ${products[key].title}`}
                       className={`lg:p-1 p-px rounded-full transition-all duration-300 ease-in-out transform hover:scale-110 ${
                         activeKey === key
