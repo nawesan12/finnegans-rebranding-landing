@@ -78,7 +78,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-4 pl-13 pr-0 lg:pl-40 lg:py-24
+              py-4 pl-12 pr-0 lg:pl-24 lg:py-24 md:pr-20
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
@@ -92,7 +92,7 @@ export default function FinnegansProductosReact() {
               <img
                 src={activeProduct.logo}
                 alt={`${activeProduct.title} Logo`}
-                className="w-full h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0  max-w-max relative -left-10"
+                className=" h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0  max-w-full relative md:left-0 -left-4 "
               />
 
               <p

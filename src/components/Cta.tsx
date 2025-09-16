@@ -95,8 +95,8 @@ export default function ImpactoSection() {
               >
                 impacto.
                 <motion.span
-                  className="absolute left-0 h-1 bg-white rounded-full"
-                  style={{ bottom: 28, right: 0 }}
+                  className="absolute left-0 h-1 bg-white rounded-full bottom-4 md:bottom-7 "
+                  style={{ right: 0 }}
                   initial={{ width: 0, opacity: 0 }}
                   animate={{
                     width: active ? "100%" : 0,
@@ -111,46 +111,92 @@ export default function ImpactoSection() {
                 {active && (
                   <motion.div
                     key="bubbles"
-                    className="absolute -right-48 top-1/2  -translate-y-1/2 z-50 transform-gpu"
+                    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 z-50 transform-gpu md:w-auto md:h-auto md:top-1/2 md:-right-48 md:left-auto md:-translate-x-0 md:-translate-y-1/2"
                     //@ts-expect-error bla
                     variants={groupVariants}
                     initial="initial"
                     animate="animate"
                     exit="exit"
                   >
-                    <div className="relative flex flex-col items-start gap-0 [&>*+*]:-mt-10 pointer-events-auto">
+                    <div className="relative w-full h-full md:w-auto md:h-auto md:flex md:flex-col md:items-start md:gap-0 md:[&>*+*]:-mt-10 pointer-events-auto">
                       {bubbleSrcs.map((src, i) => (
-                        <motion.div
-                          key={src}
-                          animate={{
-                            y: [offsets[i], offsets[i] - 3, offsets[i]],
-                          }}
-                          transition={{
-                            duration: 2 + i * 0.2,
-                            repeat: Infinity,
-                            repeatType: "mirror",
-                            ease: "easeInOut",
-                          }}
-                          whileHover={{ scale: 1.03, x: 2 }}
-                        >
-                          <motion.img
-                            src={src}
-                            alt=""
-                            className="h-8 w-auto md:h-10 drop-shadow-xl select-none"
-                            //@ts-expect-error bla
-                            variants={bubbleVariants}
-                            custom={i}
-                            draggable={false}
-                            onError={(e) => {
-                              (e.currentTarget as HTMLImageElement).replaceWith(
-                                Object.assign(document.createElement("div"), {
-                                  className:
-                                    "h-10 md:h-14 w-10 md:w-14 rounded-full border border-white/70 bg-white/10",
-                                }),
-                              );
+                        <>
+                          <motion.div
+                            key={`${src}-d`}
+                            className="hidden md:block"
+                            animate={{
+                              y: [offsets[i], offsets[i] - 3, offsets[i]],
                             }}
-                          />
-                        </motion.div>
+                            transition={{
+                              duration: 2 + i * 0.2,
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              ease: "easeInOut",
+                            }}
+                            whileHover={{ scale: 1.03, x: 2 }}
+                          >
+                            <motion.img
+                              src={src}
+                              alt=""
+                              className="h-8 w-auto md:h-10 drop-shadow-xl select-none"
+                              //@ts-expect-error bla
+                              variants={bubbleVariants}
+                              custom={i}
+                              draggable={false}
+                              onError={(e) => {
+                                (
+                                  e.currentTarget as HTMLImageElement
+                                ).replaceWith(
+                                  Object.assign(document.createElement("div"), {
+                                    className:
+                                      "h-10 md:h-14 w-10 md:w-14 rounded-full border border-white/70 bg-white/10",
+                                  }),
+                                );
+                              }}
+                            />
+                          </motion.div>
+
+                          <motion.div
+                            key={`${src}-m`}
+                            className={`absolute md:hidden ${
+                              i === 0
+                                ? "-bottom-10 -right-12 "
+                                : i === 1
+                                  ? "-right-6 top-0"
+                                  : i === 2
+                                    ? "top-0 -left-1/2 -translate-x-1/2"
+                                    : "-left-1/2 top-1/2 -translate-y-1/2"
+                            }`}
+                            animate={{ y: [0, -3, 0] }}
+                            transition={{
+                              duration: 2 + i * 0.2,
+                              repeat: Infinity,
+                              repeatType: "mirror",
+                              ease: "easeInOut",
+                            }}
+                            whileHover={{ scale: 1.03, x: 2 }}
+                          >
+                            <motion.img
+                              src={src}
+                              alt=""
+                              className="h-8 w-auto md:h-10 drop-shadow-xl select-none"
+                              //@ts-expect-error bla
+                              variants={bubbleVariants}
+                              custom={i}
+                              draggable={false}
+                              onError={(e) => {
+                                (
+                                  e.currentTarget as HTMLImageElement
+                                ).replaceWith(
+                                  Object.assign(document.createElement("div"), {
+                                    className:
+                                      "h-10 md:h-14 w-10 md:w-14 rounded-full border border-white/70 bg-white/10",
+                                  }),
+                                );
+                              }}
+                            />
+                          </motion.div>
+                        </>
                       ))}
                     </div>
                   </motion.div>
