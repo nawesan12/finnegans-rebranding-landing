@@ -1,20 +1,52 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function Hero() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [hoveringWord, setHoveringWord] = useState(false);
+  const [activeSyl, setActiveSyl] = useState<null | "in" | "vi" | "ta" | "mos">(
+    null,
+  );
+  const [bubbleX, setBubbleX] = useState<number | null>(null);
+
+  const containerRef = useRef<HTMLSpanElement | null>(null);
+  const sylRefs = {
+    in: useRef<HTMLSpanElement | null>(null),
+    vi: useRef<HTMLSpanElement | null>(null),
+    ta: useRef<HTMLSpanElement | null>(null),
+    mos: useRef<HTMLSpanElement | null>(null),
+  };
+
+  function updateBubbleX(s: "in" | "vi" | "ta" | "mos") {
+    const c = containerRef.current;
+    const r = sylRefs[s].current;
+    if (!c || !r) return;
+    // center X of syllable relative to the container
+    const x = r.offsetLeft + r.offsetWidth / 2;
+    setBubbleX(x);
+  }
+
+  // keep position correct on resize (if still hovering a syllable)
+  useEffect(() => {
+    const onResize = () => {
+      if (activeSyl) updateBubbleX(activeSyl);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, [activeSyl]);
+
   return (
     <section
       id="home"
-      className="relative z-40 min-h-screen bg-[url('/hero-mobile.png')] md:bg-[url('/Foto-Header.png')] bg-cover bg-right bg-no-repeat"
+      className="relative z-40 h-svh bg-[url('/header-mobile.png')] md:bg-[url('/Foto-Header.png')] bg-cover bg-right bg-no-repeat"
     >
-      <div className="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0 relative md:-top-6">
+      <div className="mx-auto flex h-svh min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0 relative md:-top-6">
         {/* Header */}
         <motion.header
-          className="w-full lg:relative lg:top-20"
+          className="w-full relative top-20 px-2"
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -112,16 +144,68 @@ export default function Hero() {
 
         {/* Main Heading */}
         <motion.div
-          className="text-white mt-auto lg:mt-0 md:mt-0 mb-12 lg:mb-0"
+          className="text-white mt-auto lg:mt-0 md:mt-0 mb-4 md:mb-0"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h2 className="text-3xl poppins-semibold lg:leading-none leading-normal md:text-8xl lg:text-[110px] whitespace-nowrap">
-            Te invitamos <br /> al <i>futuro</i> <br /> que&nbsp;
+          <h2 className="text-5xl poppins-semibold lg:leading-none md:leading-normal md:text-8xl lg:text-[124px] whitespace-nowrap">
+            Te <br className="block md:hidden" />{" "}
+            <span
+              ref={containerRef}
+              className="relative inline-flex"
+              onMouseEnter={() => setHoveringWord(true)}
+              onMouseLeave={() => {
+                setHoveringWord(false);
+                setActiveSyl(null);
+                setBubbleX(null);
+              }}
+            >
+              {(
+                [
+                  { key: "in" as const, text: "in" },
+                  { key: "vi" as const, text: "vi" },
+                  { key: "ta" as const, text: "ta" },
+                  { key: "mos" as const, text: "mos" },
+                ] as const
+              ).map(({ key, text }) => (
+                <span
+                  key={key}
+                  ref={sylRefs[key]}
+                  className="relative inline-block"
+                  onMouseEnter={() => {
+                    setActiveSyl(key);
+                    updateBubbleX(key);
+                  }}
+                >
+                  {text}
+                </span>
+              ))}
+
+              {/* single bubble that glides to the hovered syllable */}
+              {hoveringWord && bubbleX !== null && (
+                <motion.img
+                  src="/bubble.svg"
+                  alt=""
+                  className="pointer-events-none absolute -top-8 md:-top-14 h-10 md:h-20"
+                  style={{ left: bubbleX, transform: "translateX(-50%)" }}
+                  initial={false}
+                  animate={{ left: bubbleX, opacity: 1, y: -4, scale: 1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 320,
+                    damping: 22,
+                    mass: 0.6,
+                  }}
+                />
+              )}
+            </span>
+            <br /> al <i>futuro</i> <br className="hidden md:block" /> que{" "}
+            <br className="block md:hidden" />
+            &nbsp;
             <div className="inline-flex relative max-w-max">
               <motion.span
-                className="hand-font text-6xl md:text-9xl lg:text-[160px] relative leading-0.5 lg:leading-0 top-2 lg:top-4 z-30 align-text-top"
+                className="hand-font text-7xl md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-2 lg:top-4 z-30 align-text-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.6, type: "spring" }}
@@ -131,7 +215,7 @@ export default function Hero() {
               <img
                 src="/ui/linea-imaginamos.png"
                 alt=""
-                className="object-contain w-full absolute z-10 -bottom-6 lg:-bottom-16"
+                className="object-contain w-full absolute z-10 -left-3 -bottom-6 lg:-bottom-16"
               />
             </div>
           </h2>
@@ -139,7 +223,7 @@ export default function Hero() {
 
         {/* Footer */}
         <motion.div
-          className="flex flex-col items-center justify-between lg:relative lg:bottom-6 gap-8 text-white md:flex-row"
+          className="flex flex-col items-center justify-between lg:relative lg:bottom-6 gap-8 text-white md:flex-row md:pb-0 pb-12"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -180,12 +264,13 @@ export default function Hero() {
           height: 24px;
           transition: all 0.25s;
           position: relative;
+          padding-right: 8px;
         }
         .hamburger-top,
         .hamburger-middle,
         .hamburger-bottom {
           position: absolute;
-          width: 24px;
+          width: 32px;
           height: 3px;
           top: 0;
           left: 0;

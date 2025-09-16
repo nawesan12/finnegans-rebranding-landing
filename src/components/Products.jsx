@@ -5,26 +5,28 @@ const products = {
   academia: {
     title: "Finnegans GO",
     bg: "bg-[#3985ff]",
-    text: "text-white",
+    text: "text-[#00001e]",
     description:
-      "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen.",
+      "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen. Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen.",
     badgeBg: "bg-white/20",
     badgeText: "text-white",
-    image: "/foto-1.jpg",
-    logo: "/Go Landing.svg",
+    image: "/GO.png",
+    mobileImage: "/mobile-GO.png",
+    logo: "/GO Landing nuevo.svg",
     isoLogo: "/GO/Iso Color Especial.svg",
     activeLogo: "/GO/Isotipo Ppal Color.svg",
   },
   quippos: {
     title: "Finnegans Quippos",
     bg: "bg-[#a282ef]",
-    text: "text-white",
+    text: "text-[#06050f]",
     description:
-      "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
+      "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento. Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
-    image: "/foto-2.jpg",
-    logo: "/Quippos Landing.png",
+    image: "/quippos.png",
+    mobileImage: "/mobile-quippos.png",
+    logo: "/Quippos Landing nuevo.svg",
     isoLogo: "/Quippos/Isotipo Sobrecolor.svg",
     activeLogo: "/Quippos/Isotipo Lila.svg",
   },
@@ -50,28 +52,39 @@ export default function FinnegansProductosReact() {
     return () => clearInterval(interval);
   }, [menuOpen]);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768); // md breakpoint
+    handleResize(); // check at mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
-      className={`font-sans relative z-40 min-h-screen bg-cover  transition-all duration-200 w-full bg-gray-900 overflow-x-hidden`}
+      className="font-sans relative z-40 min-h-screen bg-cover w-full bg-gray-900 overflow-x-hidden"
       style={{
-        backgroundImage: `url('${activeProduct.image}')`,
+        backgroundImage: `url('${
+          isMobile ? activeProduct.mobileImage : activeProduct.image
+        }')`,
         backgroundPosition: "60% 60%",
       }}
     >
       <div className="z-10 flex items-end justify-between min-w-screen lg:items-center min-h-screen">
         {/* Content */}
-        <div className="flex flex-col w-sreen lg:w-auto lg:flex-row lg:justify-between lg:items-end gap-6 md:gap-10 lg:gap-16">
+        <div className="flex flex-col w-screen lg:flex-row lg:justify-between lg:items-end gap-6 md:gap-10 lg:gap-16">
           {/* LEFT panel */}
           <motion.div
             className={`
-              w-full lg:w-auto
-              py-6 pl-13 pr-0 lg:pl-32
+              w-full lg:w-1/2
+              py-6 pl-13 pr-0 lg:pl-40 lg:py-24
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
             `}
           >
-            <div className="flex flex-col">
+            <div className="flex flex-col items-start">
               <p className="block max-w-max absolute left-10 -top-3 text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
                 PRODUCTOS
               </p>
@@ -79,11 +92,11 @@ export default function FinnegansProductosReact() {
               <img
                 src={activeProduct.logo}
                 alt={`${activeProduct.title} Logo`}
-                className="w-auto h-56 md:h-80 pt-12 pb-4 pl-4 lg:pl-2 object-cover  max-w-max relative right-4"
+                className="w-full h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0  max-w-max relative -left-10"
               />
 
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-lg text-sm md:text-lg max-w-lg  pr-8 md:pr-12 leading-5  transition-colors duration-500 ${
+                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-xl text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-normal  transition-colors duration-500 ${
                   activeProduct.text === "text-white"
                     ? "text-white/80"
                     : "text-gray-700/90"
@@ -92,7 +105,7 @@ export default function FinnegansProductosReact() {
                 {activeProduct.description}
               </p>
 
-              <div className="pt-6 sm:pt-8 flex items-center justify-between gap-3">
+              <div className="pt-6 sm:pt-8 flex items-center justify-between w-full gap-3">
                 <p className="lg:block hidden text-black bg-white rounded-full py-1 mb-10 px-4 text-sm sm:text-base md:text-xl font-medium z-20 ">
                   PRODUCTOS
                 </p>

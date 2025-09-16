@@ -6,11 +6,24 @@ export default function HeroSection() {
   return (
     <>
       {/* --- Sección Academia --- */}
-      <section className="bg-[#008584] flex flex-col lg:flex-row items-center justify-evenly lg:h-96 py-11 px-8 lg:py-0 gap-11 lg:gap-0 relative z-40">
+      <section
+        id="academia"
+        className="bg-[#008584] flex flex-col lg:flex-row items-center justify-evenly lg:h-96 py-11 px-8 lg:py-0 gap-11 lg:gap-0 relative z-40"
+      >
         <motion.img
           src="/Academia.svg"
           alt=""
-          className="lg:h-72"
+          className="lg:h-72 md:block hidden"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+        />
+
+        <motion.img
+          src="/logo academia.svg"
+          alt=""
+          className="h-40 md:hidden block"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
