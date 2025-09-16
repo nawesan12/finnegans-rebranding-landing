@@ -55,7 +55,7 @@ export default function Hero() {
             <a href="/" className="z-50 text-4xl font-semibold md:text-5xl">
               <img
                 src="/finnegans-blanco.png"
-                className="aspect-auto h-8 lg:h-16"
+                className="aspect-auto h-10 lg:h-16"
                 alt=""
               />
             </a>
@@ -84,7 +84,7 @@ export default function Hero() {
             </motion.nav>
 
             {/* Hamburger Button */}
-            <button
+            {/*<button
               onClick={() => setMenuOpen(!menuOpen)}
               id="menu-btn"
               className={`hamburger z-50 block md:hidden focus:outline-none ${menuOpen ? "open" : ""}`}
@@ -94,11 +94,11 @@ export default function Hero() {
               <span className="hamburger-top"></span>
               <span className="hamburger-middle"></span>
               <span className="hamburger-bottom"></span>
-            </button>
+            </button>*/}
           </div>
         </motion.header>
 
-        {/* Mobile Menu */}
+        {/*
         <AnimatePresence>
           {menuOpen && (
             <motion.div
@@ -148,7 +148,7 @@ export default function Hero() {
               </div>
             </motion.div>
           )}
-        </AnimatePresence>
+        </AnimatePresence>*/}
 
         {/* Main Heading */}
         <motion.div
@@ -157,7 +157,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h2 className="text-5xl poppins-semibold lg:leading-none md:leading-normal md:text-8xl lg:text-[124px] whitespace-nowrap">
+          <h2 className="text-[52px] poppins-semibold leading-none lg:leading-none md:leading-normal md:text-8xl lg:text-[124px] whitespace-nowrap">
             Te <br className="block md:hidden" />{" "}
             <span
               ref={containerRef}
@@ -213,7 +213,7 @@ export default function Hero() {
             &nbsp;
             <div className="inline-flex relative max-w-max">
               <motion.span
-                className="hand-font text-[100px] md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-4 lg:top-4 z-30 align-text-top"
+                className="hand-font text-[107px] md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-4 lg:top-4 z-30 align-text-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.6, type: "spring" }}
@@ -236,11 +236,18 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <img
-            src="/nos-reinventamos.png"
-            className="h-10 aspect-auto object-contain"
-            alt=""
-          />
+          <p className="poppins-medium relative text-left self-start top-4 md:top-0 md:bottom-2 text-xl md:text-2xl">
+            Nos reinventamos con el{" "}
+            <span className="relative">
+              cielo{" "}
+              <img
+                src="/circulito.svg"
+                className="absolute max-w-full right-0 bottom-0 scale-150"
+                alt=""
+              />
+            </span>{" "}
+            <br className="block md:hidden" /> como punto de partida
+          </p>
           <nav className="hidden items-center text-lg font-medium md:flex">
             <ul className="flex items-center gap-6 text-white">
               <li>
