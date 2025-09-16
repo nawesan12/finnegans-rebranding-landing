@@ -155,7 +155,9 @@ const { title } = Astro.props;
             }
         </style>
     </head>
-    <body class="overflow-x-hidden poppins-regular">
+    <body
+        class="overflow-x-hidden poppins-regular bg-[url('/hero-mobile.png')] md:bg-[url('/hero.webp')]"
+    >
         <slot />
     </body>
 </html>

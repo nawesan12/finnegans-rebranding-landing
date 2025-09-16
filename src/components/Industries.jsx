@@ -50,8 +50,8 @@ export default function App() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <source src="industrias.mp4" type="video/mp4" />
           Your browser does not support the video tag.
+          <source src="/industrias.mp4" type='video/mp4; codecs="hvc1"' />
         </motion.video>
       </div>
     </section>

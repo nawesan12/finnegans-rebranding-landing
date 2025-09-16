@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative z-40 min-h-screen bg-[url('/hero-mobile.png')] md:bg-[url('/hero.webp')] bg-cover bg-right lg:bg-center bg-no-repeat"
+      className="relative z-40 min-h-screen bg-[url('/hero-mobile.png')] md:bg-[url('/Foto-Header.png')] bg-cover bg-right bg-no-repeat"
     >
       <div className="mx-auto flex h-screen min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0 relative md:-top-6">
         {/* Header */}
@@ -117,11 +117,11 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h2 className="text-3xl poppins-semibold lg:leading-none leading-normal md:text-7xl lg:text-[110px] whitespace-nowrap">
-            Te <br /> invitamos al futuro <br /> que&nbsp;
+          <h2 className="text-3xl poppins-semibold lg:leading-none leading-normal md:text-8xl lg:text-[110px] whitespace-nowrap">
+            Te invitamos <br /> al <i>futuro</i> <br /> que&nbsp;
             <div className="inline-flex relative max-w-max">
               <motion.span
-                className="hand-font text-6xl md:text-8xl lg:text-[160px] relative leading-0.5 lg:leading-0 top-2 lg:top-4 z-30 align-text-top"
+                className="hand-font text-6xl md:text-9xl lg:text-[160px] relative leading-0.5 lg:leading-0 top-2 lg:top-4 z-30 align-text-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.6, type: "spring" }}
