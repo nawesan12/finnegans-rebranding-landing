@@ -52,7 +52,7 @@ export default function FinnegansProductosReact() {
         const nextIndex = (currentIndex + 1) % productKeys.length;
         return productKeys[nextIndex];
       });
-    }, 4000);
+    }, 6000);
   }, [menuOpen]);
 
   useEffect(() => {
@@ -104,12 +104,18 @@ export default function FinnegansProductosReact() {
                 PRODUCTOS
               </p>
 
-              <img
-                src={activeProduct.logo}
-                alt={`${activeProduct.title} Logo`}
-                className=" h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0  max-w-full relative md:left-0 -left-4 "
-              />
-
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeKey}
+                  src={activeProduct.logo}
+                  alt={`${activeProduct.title} Logo`}
+                  className=" h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0 max-w-full relative md:left-0 -left-4 "
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                />
+              </AnimatePresence>
               <p
                 className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-xl text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-tight  transition-colors duration-500 ${
                   activeProduct.text === "text-white"

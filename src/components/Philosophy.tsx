@@ -8,10 +8,10 @@ export default function HeroSection() {
       {/* --- Sección Academia --- */}
       <section
         id="academia"
-        className="bg-[#008584] flex flex-col lg:flex-row items-center justify-evenly lg:h-96 py-11 px-8 lg:py-0 gap-11 lg:gap-0 relative z-40"
+        className="bg-[#008584] flex flex-col lg:flex-row md:items-center justify-evenly lg:h-96 py-11 px-8 lg:py-0 gap-10 lg:gap-0 relative z-40"
       >
         <motion.img
-          src="/Academia.svg"
+          src="/logo-academia.svg"
           alt=""
           className="lg:h-72 md:block hidden"
           initial={{ opacity: 0, y: -50 }}
@@ -21,7 +21,7 @@ export default function HeroSection() {
         />
 
         <motion.img
-          src="/logo academia.svg"
+          src="/academia.svg"
           alt=""
           className="h-40 md:hidden block"
           initial={{ opacity: 0, y: -50 }}
@@ -31,7 +31,7 @@ export default function HeroSection() {
         />
 
         <motion.p
-          className="lg:max-w-sm text-2xl text-left"
+          className="lg:max-w-sm text-2xl text-left relative md:left-0 left-6"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -56,7 +56,7 @@ export default function HeroSection() {
             <img
               src="/ui/conoce-mas.png"
               alt=""
-              className="h-16 aspect-auto object-contain"
+              className="md:h-16 h-12 aspect-auto object-contain relative md:left-0 left-6"
             />
           </div>
         </motion.a>
