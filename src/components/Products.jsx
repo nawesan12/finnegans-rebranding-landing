@@ -78,7 +78,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-6 pl-13 pr-0 lg:pl-40 lg:py-24
+              py-4 pl-13 pr-0 lg:pl-40 lg:py-24
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
@@ -105,7 +105,7 @@ export default function FinnegansProductosReact() {
                 {activeProduct.description}
               </p>
 
-              <div className="pt-6 sm:pt-8 flex items-center justify-between w-full gap-3">
+              <div className="md:pt-6 pt-0 flex items-center justify-between w-full gap-3">
                 <p className="lg:block hidden text-black bg-white rounded-full py-1 mb-10 px-4 text-sm sm:text-base md:text-xl font-medium z-20 ">
                   PRODUCTOS
                 </p>

@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import Industries from "../components/Industries";
 import Products from "../components/Products";
 import Philosophy from "../components/Philosophy";
-import Cta from "../components/Cta.astro";
+import Cta from "../components/Cta";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -14,7 +14,7 @@ import Footer from "../components/Footer.astro";
         <Industries client:visible />
         <Products client:visible />
         <Philosophy client:load />
-        <Cta />
+        <Cta client:visible />
     </main>
     <Footer />
 </Layout>
