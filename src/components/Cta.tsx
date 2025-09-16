@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export default function ImpactoSection() {
   const [active, setActive] = useState(false);
@@ -71,6 +71,17 @@ export default function ImpactoSection() {
       transition: { duration: 0.22 },
     }),
   };
+
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return;
+
+    const interval = setInterval(() => {
+      setActive((v) => !v);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="bg-[#FF4F00] py-20 text-black text-center flex justify-center lg:py-24 relative z-40">
