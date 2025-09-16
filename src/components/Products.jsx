@@ -7,7 +7,7 @@ const products = {
     bg: "bg-[#3985ff]",
     text: "text-[#00001e]",
     description:
-      "Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen. Capacitaciones y recursos para dominar nuestras herramientas. Potenciamos el talento de tu equipo para que aprovechen.",
+      "Finnegans GO ERP es una plataforma en la nube que digitaliza y simplifica la gestión de tu empresa, integrando finanzas, ventas, compras, stock, tesorería, contabilidad e impuestos en un solo lugar. Ágil, seguro y escalable, te permite automatizar procesos, mejorar la trazabilidad y adaptarse a la medida de cada industria, con integraciones listas para potenciar tu crecimiento.",
     badgeBg: "bg-white/20",
     badgeText: "text-white",
     image: "/GO.png",
@@ -21,7 +21,7 @@ const products = {
     bg: "bg-[#a282ef]",
     text: "text-[#06050f]",
     description:
-      "Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento. Una solución ERP cloud que se adapta a las necesidades de tu negocio, optimizando procesos y potenciando el crecimiento.",
+      "Detrás de cada empresa hay personas. Finnegans Quippos es el HCM en la nube que organiza equipos, digitaliza recibos y simplifica la liquidación de sueldos, para que RRHH pueda enfocarse en potenciar el talento y la cultura.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
     image: "/quippos.png",
@@ -93,7 +93,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-4 pl-12 pr-0 lg:pl-24 lg:py-24 md:pr-20
+              py-4 pl-12 pr-0 lg:pl-40 lg:py-14 lg:pt-12 md:pr-20
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
@@ -111,7 +111,7 @@ export default function FinnegansProductosReact() {
               />
 
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-xl text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-normal  transition-colors duration-500 ${
+                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-xl text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-tight  transition-colors duration-500 ${
                   activeProduct.text === "text-white"
                     ? "text-white/80"
                     : "text-gray-700/90"

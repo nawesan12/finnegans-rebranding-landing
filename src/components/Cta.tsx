@@ -84,7 +84,10 @@ export default function ImpactoSection() {
   }, []);
 
   return (
-    <section className="bg-[#FF4F00] py-20 text-black text-center flex justify-center lg:py-24 relative z-40">
+    <section
+      id="impacto"
+      className="bg-[#FF4F00] py-20 text-black text-center flex justify-center lg:py-24 relative z-40"
+    >
       <div className="mx-auto  px-6 lg:px-0 text-center">
         <h2 className="text-5xl font-bold md:text-7xl overflow-visible text-center relative">
           Somos creatividad{" "}

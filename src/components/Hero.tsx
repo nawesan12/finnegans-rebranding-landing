@@ -131,10 +131,18 @@ export default function Hero() {
                 Impacto
               </a>
               <div className="flex items-center gap-8 pt-8">
-                <a href="#" aria-label="LinkedIn">
+                <a
+                  href="https://www.linkedin.com/company/finnegans-s-a/"
+                  target="_blank"
+                  aria-label="LinkedIn"
+                >
                   <img src="/Linkedin.svg" className="size-8" alt="" />
                 </a>
-                <a href="#" aria-label="Instagram">
+                <a
+                  href="https://www.instagram.com/finnegans_sa/"
+                  target="_blank"
+                  aria-label="Instagram"
+                >
                   <img src="/Instagram.svg" className="size-6" alt="" />
                 </a>
               </div>
@@ -205,7 +213,7 @@ export default function Hero() {
             &nbsp;
             <div className="inline-flex relative max-w-max">
               <motion.span
-                className="hand-font text-7xl md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-2 lg:top-4 z-30 align-text-top"
+                className="hand-font text-[100px] md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-4 lg:top-4 z-30 align-text-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.6, type: "spring" }}
@@ -215,7 +223,7 @@ export default function Hero() {
               <img
                 src="/ui/linea-imaginamos.png"
                 alt=""
-                className="object-contain w-full absolute z-10 -left-3 -bottom-6 lg:-bottom-16"
+                className="object-contain w-full absolute z-10 -left-3 -bottom-10 lg:-bottom-16"
               />
             </div>
           </h2>
@@ -223,7 +231,7 @@ export default function Hero() {
 
         {/* Footer */}
         <motion.div
-          className="flex flex-col items-center justify-between lg:relative lg:bottom-6 gap-8 text-white md:flex-row md:pb-0 pb-12"
+          className="flex flex-col items-center justify-between lg:relative lg:top-8 gap-8 text-white md:flex-row md:pb-0 pb-12"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}

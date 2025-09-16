@@ -41,11 +41,12 @@ export default function HeroSection() {
           <br className="md:block hidden" /> desarrollo{" "}
           <br className="md:hidden block" /> de quienes{" "}
           <br className="md:block hidden" />
-          usan <br className="md:hidden block" /> nuestra tecnologia.
+          usan <br className="md:hidden block" /> nuestra tecnología.
         </motion.p>
 
         <motion.a
-          href=""
+          href="https://www.finneg.com/ar/site/academia/sobre-academia/"
+          target="_blank"
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -62,10 +63,7 @@ export default function HeroSection() {
       </section>
 
       {/* --- Sección Foto --- */}
-      <section
-        id="impacto"
-        className="h-1/2 overflow-hidden relative z-40 flex items-center justify-center"
-      >
+      <section className="h-1/2 overflow-hidden relative z-40 flex items-center justify-center">
         <motion.img
           src="/equipo-finnegans.png"
           alt="Group of people looking up"
