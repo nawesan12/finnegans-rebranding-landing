@@ -5,7 +5,7 @@ const products = {
   academia: {
     title: "Finnegans GO",
     bg: "bg-[#3985ff]",
-    text: "text-[#003075]",
+    text: "text-white",
     description:
       "Finnegans GO ERP es una plataforma en la nube que digitaliza y simplifica la gestión de tu empresa, integrando finanzas, ventas, compras, stock, tesorería, contabilidad e impuestos en un solo lugar. Ágil, seguro y escalable, te permite automatizar procesos, mejorar la trazabilidad y adaptarse a la medida de cada industria, con integraciones listas para potenciar tu crecimiento.",
     badgeBg: "bg-white/20",
@@ -19,7 +19,7 @@ const products = {
   quippos: {
     title: "Finnegans Quippos",
     bg: "bg-[#a282ef]",
-    text: "text-[#23087A]",
+    text: "text-white",
     description:
       "Detrás de cada empresa hay personas. Finnegans Quippos es el HCM en la nube que organiza equipos, digitaliza recibos, gestiona licencias y simplifica la liquidación de sueldos en un solo lugar. Ágil, seguro y escalable, te permite automatizar procesos, mejorar la trazabilidad y adaptarse a la medida de cada organización, con integraciones listas para potenciar el talento y la cultura.",
     badgeBg: "bg-white/50",
@@ -121,11 +121,11 @@ export default function FinnegansProductosReact() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 0 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  transition={{ duration: 0, ease: "easeInOut" }}
                 />
               </AnimatePresence>
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-4  text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
+                className={`mt-3 sm:mt-4 mb-0 md:mb-4  text-[10px] md:text-base max-w-2xl pr-14 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
               >
                 {activeProduct.description}
               </p>
