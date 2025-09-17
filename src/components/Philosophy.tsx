@@ -23,7 +23,7 @@ export default function HeroSection() {
         <motion.img
           src="/academia.svg"
           alt=""
-          className="h-40 md:hidden block relative -left-4 md:left-0"
+          className="h-40 block md:hidden relative -left-4 md:left-0"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
