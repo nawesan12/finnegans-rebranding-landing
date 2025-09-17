@@ -52,7 +52,10 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <div className="flex items-center justify-between text-white">
-            <a href="/" className="z-50 text-4xl font-semibold md:text-5xl">
+            <a
+              href="/"
+              className="z-50 text-4xl font-semibold md:text-5xl relative md:-left-2 md:bottom-2"
+            >
               <img
                 src="/finnegans-blanco.png"
                 className="aspect-auto h-10 lg:h-16"
@@ -157,7 +160,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h2 className="text-[52px] poppins-semibold leading-none lg:leading-none md:leading-normal md:text-8xl lg:text-[124px] whitespace-nowrap">
+          <h2 className="text-[52px] poppins-semibold leading-none lg:leading-none md:leading-normal md:text-8xl lg:text-[128px] whitespace-nowrap relative md:top-4">
             Te <br className="block md:hidden" />{" "}
             <span
               ref={containerRef}
@@ -208,12 +211,13 @@ export default function Hero() {
                 />
               )}
             </span>
-            <br /> al <i>futuro</i> <br className="hidden md:block" /> que{" "}
+            <br /> al <i>futuro</i> <br className="hidden md:block" />{" "}
+            <span className="md:relative md:bottom-2">que</span>{" "}
             <br className="block md:hidden" />
             &nbsp;
             <div className="inline-flex relative max-w-max">
               <motion.span
-                className="hand-font text-[107px] md:text-9xl lg:text-[173px] relative  -left-3 leading-0.5 lg:leading-0 top-4 lg:top-4 z-30 align-text-top"
+                className="hand-font text-[107px] md:text-9xl lg:text-[190px] relative -left-3 leading-0.5 lg:leading-0 top-4 lg:top-2 z-30 align-text-top"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.6, type: "spring" }}
@@ -223,7 +227,7 @@ export default function Hero() {
               <img
                 src="/ui/linea-imaginamos.png"
                 alt=""
-                className="object-contain w-full absolute z-10 -left-3 -bottom-10 lg:-bottom-16"
+                className="object-contain w-full absolute z-10 -left-3 -bottom-12 lg:-bottom-16"
               />
             </div>
           </h2>
@@ -231,12 +235,12 @@ export default function Hero() {
 
         {/* Footer */}
         <motion.div
-          className="flex flex-col items-center justify-between lg:relative lg:top-8 gap-8 text-white md:flex-row md:pb-0 pb-12"
+          className="flex flex-col items-center justify-between lg:relative lg:top-0 gap-8 text-white md:flex-row md:pb-0 pb-12"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <p className="poppins-medium relative text-left self-start top-4 md:top-0 md:bottom-2 text-xl md:text-2xl">
+          <p className="poppins-medium relative text-left self-start top-4 md:-top-1 text-xl md:text-[27px]">
             Nos reinventamos con el{" "}
             <span className="relative">
               cielo{" "}

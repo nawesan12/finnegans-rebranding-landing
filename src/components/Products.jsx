@@ -5,7 +5,7 @@ const products = {
   academia: {
     title: "Finnegans GO",
     bg: "bg-[#3985ff]",
-    text: "text-[#000000CC]",
+    text: "text-[#003075]",
     description:
       "Finnegans GO ERP es una plataforma en la nube que digitaliza y simplifica la gestión de tu empresa, integrando finanzas, ventas, compras, stock, tesorería, contabilidad e impuestos en un solo lugar. Ágil, seguro y escalable, te permite automatizar procesos, mejorar la trazabilidad y adaptarse a la medida de cada industria, con integraciones listas para potenciar tu crecimiento.",
     badgeBg: "bg-white/20",
@@ -19,9 +19,9 @@ const products = {
   quippos: {
     title: "Finnegans Quippos",
     bg: "bg-[#a282ef]",
-    text: "text-[#000000CC]",
+    text: "text-[#23087A]",
     description:
-      "Detrás de cada empresa hay personas. Finnegans Quippos es el HCM en la nube que organiza equipos, digitaliza recibos y simplifica la liquidación de sueldos, para que RRHH pueda enfocarse en potenciar el talento y la cultura.",
+      "Detrás de cada empresa hay personas. Finnegans Quippos es el HCM en la nube que organiza equipos, digitaliza recibos, gestiona licencias y simplifica la liquidación de sueldos en un solo lugar. Ágil, seguro y escalable, te permite automatizar procesos, mejorar la trazabilidad y adaptarse a la medida de cada organización, con integraciones listas para potenciar el talento y la cultura.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
     image: "/quippos.png",
@@ -101,7 +101,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-4 pl-12 pr-0 lg:pl-40 lg:py-14 lg:pt-12 pt-0 md:pr-20
+              py-4 pl-12 pr-0 lg:pl-40 lg:py-10 pt-0 md:pr-20
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
@@ -117,7 +117,7 @@ export default function FinnegansProductosReact() {
                   key={activeKey}
                   src={activeProduct.logo}
                   alt={`${activeProduct.title} Logo`}
-                  className=" h-48 object-contain md:h-96 pt-12 pb-0 pl-4 lg:pl-0 max-w-full relative md:left-0 -left-4 "
+                  className=" h-48 object-contain md:h-80 pt-12 pb-0 pl-4 lg:pl-0 max-w-full relative md:left-0 -left-4 "
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 0 }}
@@ -125,7 +125,7 @@ export default function FinnegansProductosReact() {
                 />
               </AnimatePresence>
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-4 lg:text-xl text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-tight min-h-40 transition-colors duration-500 ${`${activeProduct.text}`}`}
+                className={`mt-3 sm:mt-4 mb-0 md:mb-4  text-sm md:text-lg max-w-2xl pr-8 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
               >
                 {activeProduct.description}
               </p>
