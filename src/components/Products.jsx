@@ -164,7 +164,7 @@ export default function FinnegansProductosReact() {
                 <img
                   src="/finni-mobile.png"
                   alt=""
-                  className="h-14 object-contain lg:hidden"
+                  className="h-12 object-contain lg:hidden"
                 />
               </div>
             </div>
