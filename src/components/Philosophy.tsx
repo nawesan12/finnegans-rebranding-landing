@@ -23,7 +23,7 @@ export default function HeroSection() {
         <motion.img
           src="/academia.svg"
           alt=""
-          className="h-40 md:hidden block"
+          className="h-40 md:hidden block relative -left-4 md:left-0"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -31,7 +31,7 @@ export default function HeroSection() {
         />
 
         <motion.p
-          className="lg:max-w-sm text-2xl text-left relative md:left-0 left-6"
+          className="lg:max-w-sm text-2xl text-left relative md:left-0 left-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -56,7 +56,7 @@ export default function HeroSection() {
             <img
               src="/ui/conoce-mas.png"
               alt=""
-              className="md:h-16 h-12 aspect-auto object-contain relative md:left-0 left-6"
+              className="md:h-16 h-12 aspect-auto object-contain relative md:left-0 left-2"
             />
           </div>
         </motion.a>

@@ -176,10 +176,10 @@ export default function ImpactoSection() {
                               i === 0
                                 ? "-bottom-10 -right-12 "
                                 : i === 1
-                                  ? "-right-6 top-0"
+                                  ? "-right-8 top-0"
                                   : i === 2
                                     ? "top-0 -left-1/2 -translate-x-1/2"
-                                    : "-left-1/2 top-1/2 -translate-y-1/2"
+                                    : "-left-1/2 top-2/3 -translate-y-1/2"
                             }`}
                             animate={{ y: [0, -3, 0] }}
                             transition={{

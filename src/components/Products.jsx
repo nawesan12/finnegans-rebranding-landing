@@ -101,7 +101,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-4 pl-12 pr-0 lg:pl-40 lg:py-10 pt-0 md:pr-20
+              py-4 pl-10 pr-0 lg:pl-40 lg:py-10 pt-0 md:pr-20
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
