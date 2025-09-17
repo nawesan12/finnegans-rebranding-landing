@@ -21,7 +21,7 @@ export default function HeroSection() {
         />
 
         <motion.img
-          src="/academia.svg"
+          src="/academia-web.svg"
           alt=""
           className="h-40 block md:hidden relative -left-4 md:left-0"
           initial={{ opacity: 0, y: -50 }}
