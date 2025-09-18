@@ -160,7 +160,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          <h2 className="text-[52px] poppins-semibold leading-none lg:leading-none md:leading-normal md:text-8xl 2xl:text-[120px] whitespace-nowrap relative md:top-4">
+          <h2 className="text-[52px] poppins-semibold leading-none lg:leading-none md:leading-normal md:text-8xl 2xl:text-[120px] whitespace-nowrap relative -top-3 md:top-4">
             Te <br className="block md:hidden" />{" "}
             <span
               ref={containerRef}
@@ -235,7 +235,7 @@ export default function Hero() {
 
         {/* Footer */}
         <motion.div
-          className="flex flex-col items-center justify-between lg:relative md:top-8 2xl:top-0 gap-8 text-white md:flex-row md:pb-0 pb-12"
+          className="flex flex-col items-center justify-between relative -top-3 md:top-8 2xl:top-0 gap-8 text-white md:flex-row md:pb-0 pb-12"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
