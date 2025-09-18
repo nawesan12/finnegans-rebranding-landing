@@ -7,7 +7,9 @@ const products = {
     bg: "bg-[#3985ff]",
     text: "text-white",
     description:
-      "Finnegans GO ERP es la plataforma cloud que integra y automatiza la gestión completa de tu empresa: desde las finanzas hasta la operación diaria. Podés digitalizar procesos clave, ganar trazabilidad y tomar decisiones con información confiable y en tiempo real.",
+      "Automatizá lo repetitivo, liderá con foco. Finnegans GO ERP conecta y ordena y conecta las operaciones de tu empresa en una sola plataforma cloud. Te libera de tareas mecánicas para que puedas tomar decisiones estratégicas, anticiparte y crecer con agilidad.",
+    mobileDescription:
+      "Automatizá procesos, conectá tu empresa y usá tu tiempo en lo que realmente importa: crear, decidir y hacer crecer tu negocio.",
     badgeBg: "bg-white/20",
     badgeText: "text-white",
     image: "/GO.png",
@@ -21,7 +23,9 @@ const products = {
     bg: "bg-[#a282ef]",
     text: "text-white",
     description:
-      "Detrás de cada empresa hay personas. Finnegans Quippos es el HCM en la nube que organiza equipos, digitaliza recibos y simplifica la liquidación de sueldos, para que RRHH pueda enfocarse en potenciar el talento y la cultura.",
+      "La tecnología como aliada, las personas en el centro. Finnegans Quippos simplifica la gestión diaria de RRHH para que puedas dedicarle tiempo real a lo que más importa: tu equipo. Automatizá recibos, licencias y sueldos, y fortalecé la cultura con cada interacción.",
+    mobileDescription:
+      "Dejá lo operativo en manos de Finnegans Quippos y enfocate en lo humano: tu equipo, su experiencia, su crecimiento.",
     badgeBg: "bg-white/50",
     badgeText: "text-black",
     image: "/quippos.png",
@@ -120,10 +124,14 @@ export default function FinnegansProductosReact() {
               />
 
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-3  text-[10px] md:text-sm md:h-24 2xl:text-base max-w-2xl md:max-w-xl pr-14 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
+                className={`mt-3 sm:mt-4 mb-0 md:mb-3  text-md md:text-sm md:h-24 2xl:text-base max-w-2xl md:max-w-xl pr-14 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
               >
-                {activeProduct.description}
+                {isMobile
+                  ? activeProduct.mobileDescription
+                  : activeProduct.description}
               </p>
+
+              <p></p>
 
               <div className="md:pt-6 flex pt-4 items-center justify-between w-full gap-3">
                 <p className="lg:block hidden text-black bg-white rounded-full py-1 mb-10 px-4 text-sm sm:text-base md:text-xl font-medium z-20 ">
