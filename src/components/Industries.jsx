@@ -7,7 +7,7 @@ export default function App() {
   return (
     <section
       id="soluciones"
-      className="w-full md:h-auto max-h-svh py-10 bg-[#04102d] overflow-x-hidden relative"
+      className="w-full md:h-auto max-h-svh py-10 bg-[#010e33] overflow-x-hidden relative"
     >
       <div className="lg:max-w-7xl mx-auto lg:px-0 flex flex-col items-center justify-center gap-20 lg:grid lg:grid-cols-3 lg:gap-16">
         {/* Left Side: Title */}
