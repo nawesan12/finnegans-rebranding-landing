@@ -46,7 +46,7 @@ export default function Hero() {
       <div className="mx-auto flex h-svh min-h-[700px] max-w-7xl flex-col justify-around lg:justify-evenly py-6 px-6 lg:px-0 relative md:-top-6">
         {/* Header */}
         <motion.header
-          className="w-full relative top-20 md:top-14 2xl:top-20 px-2"
+          className="w-full relative top-12 md:top-14 2xl:top-20 px-2"
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
