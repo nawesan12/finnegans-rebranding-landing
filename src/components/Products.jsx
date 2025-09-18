@@ -112,9 +112,15 @@ export default function FinnegansProductosReact() {
             `}
           >
             <div className="flex flex-col items-start">
-              <p className="block max-w-max absolute left-10 -top-3 text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
-                PRODUCTOS
-              </p>
+              <a
+                href="https://finneg.com/ar/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="block max-w-max absolute left-10 -top-3 text-black bg-white rounded-full py-1 px-4 text-sm sm:text-base md:text-xl font-medium z-20 lg:hidden">
+                  PRODUCTOS
+                </p>
+              </a>
 
               <img
                 key={activeKey}
@@ -134,9 +140,15 @@ export default function FinnegansProductosReact() {
               <p></p>
 
               <div className="md:pt-6 flex pt-4 items-center justify-between w-full gap-3">
-                <p className="lg:block hidden text-black bg-white rounded-full py-1 mb-10 px-4 text-sm sm:text-base md:text-xl font-medium z-20 ">
-                  PRODUCTOS
-                </p>
+                <a
+                  href="https://finneg.com/ar/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <p className="lg:block hidden text-black bg-white rounded-full py-1 mb-10 px-4 text-sm sm:text-base md:text-xl font-medium z-20 ">
+                    PRODUCTOS
+                  </p>
+                </a>
                 <div className="flex items-center gap-2  sm:gap-3 pr-0 md:pr-12 lg:pr-16 lg:pb-10">
                   {productKeys.map((key) => (
                     <button
