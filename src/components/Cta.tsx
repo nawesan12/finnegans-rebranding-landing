@@ -73,9 +73,6 @@ export default function ImpactoSection() {
   };
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 768;
-    if (!isMobile) return;
-
     const interval = setInterval(() => {
       setActive((v) => !v);
     }, 3000);
