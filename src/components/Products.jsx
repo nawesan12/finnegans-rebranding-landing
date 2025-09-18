@@ -7,7 +7,7 @@ const products = {
     bg: "bg-[#3985ff]",
     text: "text-white",
     description:
-      "Automatizá lo repetitivo, liderá con foco. Finnegans GO ERP conecta y ordena y conecta las operaciones de tu empresa en una sola plataforma cloud. Te libera de tareas mecánicas para que puedas tomar decisiones estratégicas, anticiparte y crecer con agilidad.",
+      "Automatizá lo repetitivo, liderá con foco. Finnegans GO ERP conecta y ordena las operaciones de tu empresa en una sola plataforma cloud. Te libera de tareas mecánicas para que puedas tomar decisiones estratégicas, anticiparte y crecer con agilidad.",
     mobileDescription:
       "Automatizá procesos, conectá tu empresa y usá tu tiempo en lo que realmente importa: crear, decidir y hacer crecer tu negocio.",
     badgeBg: "bg-white/20",
