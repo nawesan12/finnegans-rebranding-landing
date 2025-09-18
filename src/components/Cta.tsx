@@ -89,7 +89,7 @@ export default function ImpactoSection() {
       className="bg-[#FF4F00] py-20 text-black text-center flex justify-center lg:py-24 relative z-40"
     >
       <div className="mx-auto  px-6 lg:px-0 text-center">
-        <h2 className="text-5xl font-bold md:text-7xl overflow-visible text-center relative">
+        <h2 className="text-5xl font-bold md:text-5xl 2xl:text-7xl overflow-visible text-center relative">
           Somos creatividad{" "}
           <span className="relative md:bottom-0 bottom-3 whitespace-nowrap">
             con{" "}
@@ -103,7 +103,7 @@ export default function ImpactoSection() {
             >
               {/* word */}
               <motion.span
-                className="hand-font leading-none cursor-default text-7xl md:text-9xl relative top-2 lg:top-4 inline-block"
+                className="hand-font leading-none cursor-default text-7xl md:text-8xl 2xl:text-9xl relative top-2 md:top-3 2xl:top-4 inline-block"
                 animate={{ color: active ? "#ffffff" : "#000000" }}
                 transition={{ type: "spring", stiffness: 220, damping: 20 }}
               >

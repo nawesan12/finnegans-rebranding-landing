@@ -18,7 +18,7 @@ export default function App() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h3 className="text-[42px] lg:text-7xl whitespace-nowrap  leading-none py-16 pb-64 md:py-0 md:poppins-medium ">
+          <h3 className="text-[42px] md:text-6xl relative md:left-10 2xl:left-0 2xl:text-7xl whitespace-nowrap  leading-none py-16 pb-64 md:py-0 md:poppins-medium ">
             Tecnología <br /> que se{" "}
             <motion.span
               className="hand-font font-medium text-[64px] md:text-8xl text-[#4bc3fe] relative top-2 inline-block"
@@ -43,7 +43,7 @@ export default function App() {
           preload="auto"
           src="/industrias.mp4"
           style={{ maxWidth: "800px" }}
-          className="lg:h-full w-full max-w-full max-h-screen object-cover col-span-2 lg:scale-110 md:top-0 top-60 absolute md:relative lg:left-10 md:scale-110 hidden md:block "
+          className="lg:h-full w-full max-w-full max-h-screen object-cover col-span-2 2xl:scale-110 md:top-0 top-60 absolute md:relative  2xl:left-10  hidden md:block "
           initial={{ opacity: 0, scale: 0.9, y: 40 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}

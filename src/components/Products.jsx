@@ -101,7 +101,7 @@ export default function FinnegansProductosReact() {
           <motion.div
             className={`
               w-full lg:w-1/2
-              py-4 pl-10 pr-0 lg:pl-40 lg:py-10 pt-0 md:pr-20
+              py-4 pl-10 pr-0 lg:pl-40 md:py-2 2xl:py-3 pt-0 md:pr-20
               transition-colors duration-500
               ${activeProduct.bg} ${activeProduct.text}
               lg:rounded-r-[60px] rounded-tr-[55%] relative
@@ -112,20 +112,15 @@ export default function FinnegansProductosReact() {
                 PRODUCTOS
               </p>
 
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={activeKey}
-                  src={activeProduct.logo}
-                  alt={`${activeProduct.title} Logo`}
-                  className=" h-48 object-contain md:h-80 pt-12 pb-0 pl-4 lg:pl-0 max-w-full relative md:left-0 -left-4 "
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 0 }}
-                  transition={{ duration: 0, ease: "easeInOut" }}
-                />
-              </AnimatePresence>
+              <img
+                key={activeKey}
+                src={activeProduct.logo}
+                alt={`${activeProduct.title} Logo`}
+                className=" h-48 object-contain lg:h-56 2xl:h-72 pt-12 pb-4 pl-4 lg:pl-0 max-w-full relative md:left-0 -left-4 "
+              />
+
               <p
-                className={`mt-3 sm:mt-4 mb-0 md:mb-4  text-[10px] md:text-base max-w-2xl pr-14 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
+                className={`mt-3 sm:mt-4 mb-0 md:mb-3  text-[10px] md:text-sm 2xl:text-base max-w-2xl md:max-w-xl pr-14 md:pr-12 leading-tight transition-colors duration-500 ${`${activeProduct.text}`} poppins-regular`}
               >
                 {activeProduct.description}
               </p>
@@ -155,7 +150,7 @@ export default function FinnegansProductosReact() {
                             : products[key].isoLogo
                         }
                         alt={`${products[key].title} Icon`}
-                        className="lg:size-12 size-9 aspect-square object-contain"
+                        className="md:size-8 2xl:size-12 size-9 aspect-square object-contain"
                       />
                     </button>
                   ))}

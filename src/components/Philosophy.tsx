@@ -13,7 +13,7 @@ export default function HeroSection() {
         <motion.img
           src="/logo-academia.svg"
           alt=""
-          className="lg:h-72 md:block hidden"
+          className="md:h-56 2xl:h-72 relative md:left-6 xl:-left-6 md:block hidden"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -31,7 +31,7 @@ export default function HeroSection() {
         />
 
         <motion.p
-          className="lg:max-w-sm text-2xl text-left relative md:left-0 left-2"
+          className="lg:max-w-sm text-[22px] 2xl:text-2xl text-left relative md:left-0 left-2"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -89,7 +89,7 @@ export default function HeroSection() {
       <section className="section-purple bg-[#8694ff] py-20 lg:py-26 relative z-40">
         <div className="container mx-auto px-12 text-left md:text-center md:px-0 ">
           <motion.div
-            className="mx-auto max-w-7xl text-3xl poppins-regular leading-tight text-white md:text-4xl"
+            className="mx-auto max-w-7xl text-3xl poppins-regular leading-tight text-white 2xl:text-4xl"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
