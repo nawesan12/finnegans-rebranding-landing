@@ -56,7 +56,7 @@ export default function FinnegansProductosReact() {
         const nextIndex = (currentIndex + 1) % productKeys.length;
         return productKeys[nextIndex];
       });
-    }, 6000);
+    }, 10000);
   }, [menuOpen]);
 
   useEffect(() => {
